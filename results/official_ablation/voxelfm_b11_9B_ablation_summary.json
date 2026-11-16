@@ -1,0 +1,66 @@
+{
+ "all/mean_auc/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 800
+ },
+ "all/mean_auc/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "all/mean_auc16/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 800
+ },
+ "all/mean_auc16/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "chest/mean_auc/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 800
+ },
+ "chest/mean_auc/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "chest/mean_auc16/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 800
+ },
+ "chest/mean_auc16/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "patient_a1/mean_auc/P": {
+  "first_n_better": 5994,
+  "first_n_no_significant_difference": 400
+ },
+ "patient_a1/mean_auc/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "patient_a1/mean_auc16/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 400
+ },
+ "patient_a1/mean_auc16/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "study/mean_auc/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 400
+ },
+ "study/mean_auc/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ },
+ "study/mean_auc16/P": {
+  "first_n_better": null,
+  "first_n_no_significant_difference": 400
+ },
+ "study/mean_auc16/TC": {
+  "first_n_better": 200,
+  "first_n_no_significant_difference": 100
+ }
+}

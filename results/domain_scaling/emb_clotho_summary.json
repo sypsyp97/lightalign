@@ -1,0 +1,149 @@
+{
+ "foscttm/n100": {
+  "share_encoder": 0.8512107664786024,
+  "share_text": 0.14290549286962234,
+  "share_rest": 0.0058837406517752155,
+  "range_over_encoders": 0.15974773050738772,
+  "range_over_texts": 0.06927000594324426,
+  "cell_means": {
+   "text_mpnet": {
+    "ast": 0.0968,
+    "dasheng": 0.1837,
+    "eat": 0.2455,
+    "eat_mean": 0.1573
+   },
+   "textmid_0.8B": {
+    "ast": 0.1667,
+    "dasheng": 0.2559,
+    "eat": 0.3227,
+    "eat_mean": 0.2151
+   },
+   "textmid_27B": {
+    "ast": 0.1364,
+    "dasheng": 0.2494,
+    "eat": 0.3099,
+    "eat_mean": 0.193
+   },
+   "textmid_2B": {
+    "ast": 0.1642,
+    "dasheng": 0.2525,
+    "eat": 0.3224,
+    "eat_mean": 0.2097
+   },
+   "textmid_4B": {
+    "ast": 0.1546,
+    "dasheng": 0.2566,
+    "eat": 0.3123,
+    "eat_mean": 0.2049
+   },
+   "textmid_9B": {
+    "ast": 0.1587,
+    "dasheng": 0.2548,
+    "eat": 0.3232,
+    "eat_mean": 0.2072
+   }
+  }
+ },
+ "foscttm/n400": {
+  "share_encoder": 0.7264833011369313,
+  "share_text": 0.2631866464775525,
+  "share_rest": 0.01033005238551632,
+  "range_over_encoders": 0.07619208409020325,
+  "range_over_texts": 0.04903916620304896,
+  "cell_means": {
+   "text_mpnet": {
+    "ast": 0.0686,
+    "dasheng": 0.1163,
+    "eat": 0.1337,
+    "eat_mean": 0.1073
+   },
+   "textmid_0.8B": {
+    "ast": 0.1168,
+    "dasheng": 0.1653,
+    "eat": 0.1924,
+    "eat_mean": 0.1476
+   },
+   "textmid_27B": {
+    "ast": 0.0936,
+    "dasheng": 0.1363,
+    "eat": 0.172,
+    "eat_mean": 0.1228
+   },
+   "textmid_2B": {
+    "ast": 0.1129,
+    "dasheng": 0.1624,
+    "eat": 0.1911,
+    "eat_mean": 0.1403
+   },
+   "textmid_4B": {
+    "ast": 0.1057,
+    "dasheng": 0.1536,
+    "eat": 0.1865,
+    "eat_mean": 0.1366
+   },
+   "textmid_9B": {
+    "ast": 0.1075,
+    "dasheng": 0.1525,
+    "eat": 0.1865,
+    "eat_mean": 0.1378
+   }
+  }
+ },
+ "foscttm/n1600": {
+  "share_encoder": 0.5380132781530903,
+  "share_text": 0.4546688813348515,
+  "share_rest": 0.0073178405120581935,
+  "range_over_encoders": 0.04731935851689989,
+  "range_over_texts": 0.04703185500718325,
+  "cell_means": {
+   "text_mpnet": {
+    "ast": 0.0538,
+    "dasheng": 0.0767,
+    "eat": 0.0907,
+    "eat_mean": 0.0713
+   },
+   "textmid_0.8B": {
+    "ast": 0.0963,
+    "dasheng": 0.1251,
+    "eat": 0.1421,
+    "eat_mean": 0.1171
+   },
+   "textmid_27B": {
+    "ast": 0.073,
+    "dasheng": 0.0987,
+    "eat": 0.1223,
+    "eat_mean": 0.0947
+   },
+   "textmid_2B": {
+    "ast": 0.0908,
+    "dasheng": 0.1161,
+    "eat": 0.1399,
+    "eat_mean": 0.1096
+   },
+   "textmid_4B": {
+    "ast": 0.085,
+    "dasheng": 0.1134,
+    "eat": 0.1361,
+    "eat_mean": 0.1069
+   },
+   "textmid_9B": {
+    "ast": 0.0845,
+    "dasheng": 0.1133,
+    "eat": 0.1362,
+    "eat_mean": 0.1071
+   }
+  }
+ },
+ "foscttm/pilot": {
+  "rho_S_vs_score": 0.6965217391304346,
+  "best_cell": [
+   "ast",
+   "text_mpnet"
+  ],
+  "pilot_pick": [
+   "ast",
+   "text_mpnet"
+  ],
+  "score_loss_of_pick": -0.0
+ }
+}

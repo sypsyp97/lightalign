@@ -1,0 +1,56 @@
+{
+ "pilot200_n400": {
+  "rho_S_auc": 0.9178571428571428,
+  "rho_S_foscttm": 0.8964285714285712,
+  "rho_r1_auc": 0.8892857142857141,
+  "k_abs_err_median": 2.0,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm",
+  "auc_loss_of_pick": 0.0
+ },
+ "pilot200_n800": {
+  "rho_S_auc": 0.9678571428571429,
+  "rho_S_foscttm": 0.914285714285714,
+  "rho_r1_auc": 0.95,
+  "k_abs_err_median": 4.8,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm_patch",
+  "auc_loss_of_pick": 2.3835075465550304e-05
+ },
+ "pilot200_n1600": {
+  "rho_S_auc": 0.932142857142857,
+  "rho_S_foscttm": 0.9035714285714285,
+  "rho_r1_auc": 0.9571428571428571,
+  "k_abs_err_median": 6.0,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm_patch",
+  "auc_loss_of_pick": 0.001103171399093661
+ },
+ "pilot400_n400": {
+  "rho_S_auc": 0.7607142857142856,
+  "rho_S_foscttm": 0.7749999999999999,
+  "rho_r1_auc": 0.9249999999999998,
+  "k_abs_err_median": 0.6000000000000001,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm",
+  "auc_loss_of_pick": 0.0
+ },
+ "pilot400_n800": {
+  "rho_S_auc": 0.825,
+  "rho_S_foscttm": 0.7642857142857141,
+  "rho_r1_auc": 0.9607142857142855,
+  "k_abs_err_median": 3.2,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm_patch",
+  "auc_loss_of_pick": 2.3835075465550304e-05
+ },
+ "pilot400_n1600": {
+  "rho_S_auc": 0.8857142857142855,
+  "rho_S_foscttm": 0.7642857142857141,
+  "rho_r1_auc": 0.9785714285714284,
+  "k_abs_err_median": 4.2,
+  "best_encoder_pilot": "voxelfm",
+  "best_encoder_auc": "voxelfm_patch",
+  "auc_loss_of_pick": 0.001103171399093661
+ }
+}

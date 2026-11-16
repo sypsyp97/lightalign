@@ -1,0 +1,177 @@
+{
+ "encoder": "vjepa2_h",
+ "model": "4B",
+ "summary": [
+  {
+   "method": "anchors+blind",
+   "m": 10,
+   "auc_other_labels": 0.6314227918214328,
+   "mean_auc": 0.6450667840287343,
+   "foscttm": 0.41236810130288387
+  },
+  {
+   "method": "anchors+blind",
+   "m": 25,
+   "auc_other_labels": 0.6592796263371957,
+   "mean_auc": 0.6730693532634255,
+   "foscttm": 0.3831918947933441
+  },
+  {
+   "method": "anchors+blind",
+   "m": 50,
+   "auc_other_labels": 0.6701181681342974,
+   "mean_auc": 0.6838309221489116,
+   "foscttm": 0.36958424827990044
+  },
+  {
+   "method": "anchors+random",
+   "m": 10,
+   "auc_other_labels": 0.6449782456795157,
+   "mean_auc": 0.6599263234984887,
+   "foscttm": 0.3892680427463036
+  },
+  {
+   "method": "anchors+random",
+   "m": 25,
+   "auc_other_labels": 0.6403665129858241,
+   "mean_auc": 0.6540739975106515,
+   "foscttm": 0.38306807202459375
+  },
+  {
+   "method": "anchors+random",
+   "m": 50,
+   "auc_other_labels": 0.6620367439541874,
+   "mean_auc": 0.6762295519297568,
+   "foscttm": 0.3698681013028839
+  },
+  {
+   "method": "anchors+residual",
+   "m": 10,
+   "auc_other_labels": 0.6351815301991736,
+   "mean_auc": 0.6484404351762761,
+   "foscttm": 0.41424888986483194
+  },
+  {
+   "method": "anchors+residual",
+   "m": 25,
+   "auc_other_labels": 0.6644405633939409,
+   "mean_auc": 0.6777931962892436,
+   "foscttm": 0.37824593763724196
+  },
+  {
+   "method": "anchors+residual",
+   "m": 50,
+   "auc_other_labels": 0.6687611806243521,
+   "mean_auc": 0.6825092853704258,
+   "foscttm": 0.3696983848143268
+  },
+  {
+   "method": "ot_refine",
+   "m": 10,
+   "auc_other_labels": 0.6064582341276791,
+   "mean_auc": 0.6169401134141351,
+   "foscttm": 0.41241806958473626
+  },
+  {
+   "method": "ot_refine",
+   "m": 25,
+   "auc_other_labels": 0.6122907617538519,
+   "mean_auc": 0.6228378390388413,
+   "foscttm": 0.41213716878934264
+  },
+  {
+   "method": "ot_refine",
+   "m": 50,
+   "auc_other_labels": 0.6314614363199278,
+   "mean_auc": 0.6421418659638609,
+   "foscttm": 0.4029578880593373
+  },
+  {
+   "method": "random_alone",
+   "m": 10,
+   "auc_other_labels": 0.6128328815061604,
+   "mean_auc": 0.6230548549463665,
+   "foscttm": 0.4100504562533548
+  },
+  {
+   "method": "random_alone",
+   "m": 25,
+   "auc_other_labels": 0.6252827331755535,
+   "mean_auc": 0.6373228260555268,
+   "foscttm": 0.39703432879519834
+  },
+  {
+   "method": "random_alone",
+   "m": 50,
+   "auc_other_labels": 0.6437309924361774,
+   "mean_auc": 0.6561059146353898,
+   "foscttm": 0.38315336944322453
+  },
+  {
+   "method": "random_alone",
+   "m": 100,
+   "auc_other_labels": 0.6571610490216626,
+   "mean_auc": 0.6688815540883748,
+   "foscttm": 0.3717151954325867
+  },
+  {
+   "method": "random_alone",
+   "m": 200,
+   "auc_other_labels": 0.6733494211191275,
+   "mean_auc": 0.6830875475679022,
+   "foscttm": 0.34446506124042353
+  },
+  {
+   "method": "random_alone",
+   "m": 400,
+   "auc_other_labels": 0.6928988340094357,
+   "mean_auc": 0.7011224389236425,
+   "foscttm": 0.31606616893573414
+  }
+ ],
+ "contrasts": {
+  "m10_residual_minus_random": {
+   "point": -0.00979671548034211,
+   "lo": -0.013266301533075522,
+   "hi": -0.006533294356521464
+  },
+  "m10_residual_minus_blind": {
+   "point": 0.003758738377740767,
+   "lo": 0.0010448475617474112,
+   "hi": 0.006731125715227695
+  },
+  "m25_residual_minus_random": {
+   "point": 0.02407405040811672,
+   "lo": 0.02006889703581449,
+   "hi": 0.02821198897187457
+  },
+  "m25_residual_minus_blind": {
+   "point": 0.005160937056745141,
+   "lo": 0.0028401007953163943,
+   "hi": 0.007747997562195219
+  },
+  "m50_residual_minus_random": {
+   "point": 0.006724436670164646,
+   "lo": 0.004351311103732913,
+   "hi": 0.009131071917060076
+  },
+  "m50_residual_minus_blind": {
+   "point": -0.0013569875099452844,
+   "lo": -0.0034284288785656424,
+   "hi": 0.0007492418938694871
+  },
+  "m25_residual_minus_random100": {
+   "point": 0.007279514372278251,
+   "lo": 0.002034886394360111,
+   "hi": 0.012009209731795461
+  },
+  "m25_residual_minus_random100_foscttm": {
+   "point": 0.006530742204655271,
+   "lo": -1.4900819792167084e-05,
+   "hi": 0.013519087005318982
+  }
+ },
+ "pass_voxelfm_criteria": false,
+ "equivalent_random_pairs_residual_m25": 136.57330362068373,
+ "residual_minus_blind_m25_sign": 1.0
+}

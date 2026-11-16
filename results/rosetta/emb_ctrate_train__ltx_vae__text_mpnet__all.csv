@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,ltx_vae,text_mpnet,734796314,972,0.4836775972283219,0.5297792336241514
+emb_ctrate_train,ltx_vae,text_mpnet,576165995,972,0.510754037964183,0.462174097295155
+emb_ctrate_train,ltx_vae,text_mpnet,2197670066,972,0.48221099887766555,0.5380054101193346

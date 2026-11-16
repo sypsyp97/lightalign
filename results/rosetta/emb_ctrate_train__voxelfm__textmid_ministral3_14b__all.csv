@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,voxelfm,textmid_ministral3_14b,734796314,972,0.5169457863660761,0.4310810691701323
+emb_ctrate_train,voxelfm,textmid_ministral3_14b,576165995,972,0.49725540428438975,0.4694198078667235
+emb_ctrate_train,voxelfm,textmid_ministral3_14b,2197670066,972,0.4948479968769824,0.4880996966409833

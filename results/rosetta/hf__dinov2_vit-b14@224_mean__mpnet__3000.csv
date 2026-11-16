@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm
+coco_hf,dinov2_vit-b14@224_mean,mpnet,734796314,3000,0.05096710209721091
+coco_hf,dinov2_vit-b14@224_mean,mpnet,576165995,3000,0.09342521282186401
+coco_hf,dinov2_vit-b14@224_mean,mpnet,2197670066,3000,0.1417460919262221

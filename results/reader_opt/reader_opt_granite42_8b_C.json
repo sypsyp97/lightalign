@@ -1,0 +1,20 @@
+{
+ "Medical material": 1.0,
+ "Arterial wall calcification": 0.03162277660168379,
+ "Cardiomegaly": 10.0,
+ "Pericardial effusion": 3.1622776601683795,
+ "Coronary artery wall calcification": 10.0,
+ "Hiatal hernia": 3.1622776601683795,
+ "Lymphadenopathy": 3.1622776601683795,
+ "Emphysema": 0.03162277660168379,
+ "Atelectasis": 1.0,
+ "Lung nodule": 0.1,
+ "Lung opacity": 0.03162277660168379,
+ "Pulmonary fibrotic sequela": 0.03162277660168379,
+ "Pleural effusion": 1.0,
+ "Mosaic attenuation pattern": 10.0,
+ "Peribronchial thickening": 0.1,
+ "Consolidation": 0.1,
+ "Bronchiectasis": 1.0,
+ "Interlobular septal thickening": 10.0
+}

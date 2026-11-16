@@ -1,0 +1,177 @@
+{
+ "encoder": "dinov3_2d",
+ "model": "4B",
+ "summary": [
+  {
+   "method": "anchors+blind",
+   "m": 10,
+   "auc_other_labels": 0.6460146066344806,
+   "mean_auc": 0.6617535249358762,
+   "foscttm": 0.40168042746303617
+  },
+  {
+   "method": "anchors+blind",
+   "m": 25,
+   "auc_other_labels": 0.6698141482947835,
+   "mean_auc": 0.6845443552934253,
+   "foscttm": 0.3681491484897282
+  },
+  {
+   "method": "anchors+blind",
+   "m": 50,
+   "auc_other_labels": 0.6772155419388028,
+   "mean_auc": 0.6916055606801118,
+   "foscttm": 0.3569667935392573
+  },
+  {
+   "method": "anchors+random",
+   "m": 10,
+   "auc_other_labels": 0.644257804828028,
+   "mean_auc": 0.6589080886287952,
+   "foscttm": 0.39123488508271115
+  },
+  {
+   "method": "anchors+random",
+   "m": 25,
+   "auc_other_labels": 0.6564846810356897,
+   "mean_auc": 0.6711797107736459,
+   "foscttm": 0.3744548138388718
+  },
+  {
+   "method": "anchors+random",
+   "m": 50,
+   "auc_other_labels": 0.6743192387863438,
+   "mean_auc": 0.6891391600411126,
+   "foscttm": 0.3572539159713073
+  },
+  {
+   "method": "anchors+residual",
+   "m": 10,
+   "auc_other_labels": 0.6349875490637947,
+   "mean_auc": 0.6483955618586954,
+   "foscttm": 0.41650434294637195
+  },
+  {
+   "method": "anchors+residual",
+   "m": 25,
+   "auc_other_labels": 0.6695852708682029,
+   "mean_auc": 0.6834119393449412,
+   "foscttm": 0.3738033962816572
+  },
+  {
+   "method": "anchors+residual",
+   "m": 50,
+   "auc_other_labels": 0.6772163421807506,
+   "mean_auc": 0.6912436204949178,
+   "foscttm": 0.35850431854779685
+  },
+  {
+   "method": "ot_refine",
+   "m": 10,
+   "auc_other_labels": 0.5963510103017649,
+   "mean_auc": 0.6035221030391081,
+   "foscttm": 0.4263769823842288
+  },
+  {
+   "method": "ot_refine",
+   "m": 25,
+   "auc_other_labels": 0.6023768873902171,
+   "mean_auc": 0.6093962325568889,
+   "foscttm": 0.4159490069779925
+  },
+  {
+   "method": "ot_refine",
+   "m": 50,
+   "auc_other_labels": 0.6414358682008123,
+   "mean_auc": 0.6500139671620984,
+   "foscttm": 0.39074852388620507
+  },
+  {
+   "method": "random_alone",
+   "m": 10,
+   "auc_other_labels": 0.6022215307055332,
+   "mean_auc": 0.6092549326332943,
+   "foscttm": 0.42131959693553894
+  },
+  {
+   "method": "random_alone",
+   "m": 25,
+   "auc_other_labels": 0.6138185918684371,
+   "mean_auc": 0.6227868893555184,
+   "foscttm": 0.40593307470843704
+  },
+  {
+   "method": "random_alone",
+   "m": 50,
+   "auc_other_labels": 0.6556992014038594,
+   "mean_auc": 0.6657113259823852,
+   "foscttm": 0.3739237056555897
+  },
+  {
+   "method": "random_alone",
+   "m": 100,
+   "auc_other_labels": 0.6655718000489941,
+   "mean_auc": 0.6750009588663,
+   "foscttm": 0.3578489728199873
+  },
+  {
+   "method": "random_alone",
+   "m": 200,
+   "auc_other_labels": 0.6886703001763023,
+   "mean_auc": 0.697579384324494,
+   "foscttm": 0.32416930171278
+  },
+  {
+   "method": "random_alone",
+   "m": 400,
+   "auc_other_labels": 0.695861296994409,
+   "mean_auc": 0.7038588361319512,
+   "foscttm": 0.3049584980237154
+  }
+ ],
+ "contrasts": {
+  "m10_residual_minus_random": {
+   "point": -0.009270255764233237,
+   "lo": -0.015060165482272495,
+   "hi": -0.003691532692267808
+  },
+  "m10_residual_minus_blind": {
+   "point": -0.011027057570685894,
+   "lo": -0.015653014234825274,
+   "hi": -0.006536354090384173
+  },
+  "m25_residual_minus_random": {
+   "point": 0.013100589832513165,
+   "lo": 0.00780082410734585,
+   "hi": 0.01858712115718059
+  },
+  "m25_residual_minus_blind": {
+   "point": -0.00022887742658062038,
+   "lo": -0.00356520009529982,
+   "hi": 0.0028124719378221606
+  },
+  "m50_residual_minus_random": {
+   "point": 0.0028971033944067415,
+   "lo": -0.00013678557461351546,
+   "hi": 0.0058898042291202005
+  },
+  "m50_residual_minus_blind": {
+   "point": 8.002419477071143e-07,
+   "lo": -0.0021822612372246,
+   "hi": 0.0019366768625267
+  },
+  "m25_residual_minus_random100": {
+   "point": 0.004013470819208775,
+   "lo": -0.0021196990660758003,
+   "hi": 0.009814860045867492
+  },
+  "m25_residual_minus_random100_foscttm": {
+   "point": 0.01595442346166992,
+   "lo": 0.00840512370077592,
+   "hi": 0.023890318645391106
+  }
+ },
+ "pass_voxelfm_criteria": false,
+ "equivalent_random_pairs_residual_m25": 112.79902576126813,
+ "residual_minus_blind_m25_sign": -1.0
+}

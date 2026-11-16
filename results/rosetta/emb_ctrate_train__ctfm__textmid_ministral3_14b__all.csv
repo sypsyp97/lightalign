@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,ctfm,textmid_ministral3_14b,734796314,972,0.5119482262235886,0.4659995471095903
+emb_ctrate_train,ctfm,textmid_ministral3_14b,576165995,972,0.5114016981408286,0.4682690213040391
+emb_ctrate_train,ctfm,textmid_ministral3_14b,2197670066,972,0.5102413019079687,0.49741563385591664

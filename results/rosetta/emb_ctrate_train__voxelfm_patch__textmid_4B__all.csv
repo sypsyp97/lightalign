@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,voxelfm_patch,textmid_4B,734796314,972,0.5076252866832578,0.46581233753360757
+emb_ctrate_train,voxelfm_patch,textmid_4B,576165995,972,0.49900892987849504,0.4881618744857781
+emb_ctrate_train,voxelfm_patch,textmid_4B,2197670066,972,0.48818986971160877,0.4751127649772411

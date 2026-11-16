@@ -1,0 +1,68 @@
+{
+  "format": "lightalign-ctrate-n5994-seed0",
+  "n_pairs": 5994,
+  "seed": 0,
+  "findings": [
+    "Medical material",
+    "Arterial wall calcification",
+    "Cardiomegaly",
+    "Pericardial effusion",
+    "Coronary artery wall calcification",
+    "Hiatal hernia",
+    "Lymphadenopathy",
+    "Emphysema",
+    "Atelectasis",
+    "Lung nodule",
+    "Lung opacity",
+    "Pulmonary fibrotic sequela",
+    "Pleural effusion",
+    "Mosaic attenuation pattern",
+    "Peribronchial thickening",
+    "Consolidation",
+    "Bronchiectasis",
+    "Interlobular septal thickening"
+  ],
+  "image": {
+    "repo": "rmaguado/VoxelFM",
+    "revision": "7a58beab42c0ba213f40b9dbcaae43d3488416dd",
+    "code": "https://github.com/rmaguado/VoxelFM",
+    "code_commit": "fba41a34c3e4dcfebbe902be5e2b2ce26db27d52",
+    "files": [
+      "vitb_3d/config.yaml",
+      "vitb_3d/checkpoints/99999.pth"
+    ],
+    "feature": "normed CLS token after block 11",
+    "attention": "fused scaled_dot_product_attention",
+    "dtype": "bfloat16"
+  },
+  "text": {
+    "repo": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "pooling": "mean over tokens of hidden_states[len(hidden_states)//2]",
+    "max_length": 1024,
+    "dtype": "bfloat16",
+    "padding_side": "right",
+    "loader": "AutoModelForImageTextToText; vision tower deleted"
+  },
+  "normalization": "L2-normalize, subtract the mean of the training-pool unit vectors, L2-normalize again",
+  "ridge": {
+    "alphas": "logspace(-3, 3, 13)",
+    "fit_intercept": false,
+    "alpha": 3.1622776601683795
+  },
+  "logistic_regression": {
+    "C": 1.0,
+    "fit_intercept": true,
+    "solver": "lbfgs",
+    "max_iter": 100,
+    "tol": 0.0001,
+    "scaler": "StandardScaler",
+    "note": "explicit scikit-learn 1.6.1 defaults"
+  },
+  "prompt_embeddings": "centered and L2-normalized; positive then negative per finding",
+  "fit_libraries": {
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1"
+  }
+}

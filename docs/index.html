@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Matters for Cross-Modal Alignment</title>
+<meta name="description" content="Zero-pair alignment of frozen image and text encoders fails when the shared subspace carries little variance. LightAlign aligns frozen 3D CT and text encoders with a few hundred pairs.">
+<meta property="og:title" content="What Matters for Cross-Modal Alignment">
+<meta property="og:description" content="Why zero-pair alignment fails on medical images, how many pairs it needs, and LightAlign: ridge regression between two frozen encoders.">
+<meta property="og:image" content="https://sypsyp97.github.io/lightalign/static/fig_teaser.webp">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>What Matters for <span class="nowrap">Cross-Modal Alignment</span></h1>
+    <p class="authors">
+      <span><a href="https://scholar.google.com/citations?user=FaHGR6QAAAAJ">Yipeng Sun</a><sup>1</sup>,</span>
+      <span><a href="https://scholar.google.com/citations?user=j9xhw5QAAAAJ">Jiajun Wang</a><sup>1</sup>,</span>
+      <span><a href="https://scholar.google.com/citations?user=W_xPF2YAAAAJ">Siyuan Mei</a><sup>1</sup>,</span>
+      <span><a href="https://www.uk-erlangen.de/kontakt/visitenkarte/yan-xia-13602/">Yan Xia</a><sup>2</sup>,</span>
+      <span><a href="https://scholar.google.com/citations?user=aAV8yQ0AAAAJ">Siming Bayer</a><sup>1</sup>,</span>
+      <span><a href="https://scholar.google.com/citations?user=iIV3XoAAAAAJ">Vincent Christlein</a><sup>1</sup>,</span>
+      <span><a href="https://scholar.google.com/citations?user=MA6SDuEAAAAJ">Andreas Maier</a><sup>1</sup></span>
+    </p>
+    <p class="affil"><sup>1</sup>Pattern Recognition Lab, Friedrich-Alexander-Universität Erlangen-Nürnberg</p>
+    <p class="affil"><sup>2</sup>Department of Orthodontics and Orofacial Orthopedics, Friedrich-Alexander-Universität Erlangen-Nürnberg</p>
+    <div class="logos">
+      <a href="https://www.fau.eu/"><img src="static/logo_fau.svg" width="300" height="43" alt="Friedrich-Alexander-Universität Erlangen-Nürnberg"></a>
+      <a href="https://lme.tf.fau.de/"><img src="static/logo_prl.webp" width="540" height="189" alt="Pattern Recognition Lab"></a>
+    </div>
+    <nav class="links" aria-label="Resources">
+      <a class="btn" href="https://github.com/sypsyp97/lightalign">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>Code</span>
+      </a>
+      <a class="btn" href="https://huggingface.co/yipengsun/lightalign-ctrate">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5 2.5 6.75v10.5L12 22.5l9.5-5.25V6.75L12 1.5Zm0 2.29 6.93 3.83L12 11.45 5.07 7.62 12 3.79ZM4.5 9.33l6.5 3.6v7.15l-6.5-3.6V9.33Zm8.5 10.75v-7.15l6.5-3.6v7.15l-6.5 3.6Z"/></svg>
+        <span>Weights</span>
+      </a>
+    </nav>
+    <figure class="card explorer" id="explorer">
+      <div class="ex-bar">
+        <div class="seg ex-steps" role="group" aria-label="Step">
+          <button type="button" data-step="separate" aria-pressed="true"><span>1</span>Encoders</button>
+          <button type="button" data-step="0" aria-pressed="false"><span>2</span>Zero pairs</button>
+          <button type="button" data-step="200" aria-pressed="false"><span>3</span>200 pairs</button>
+          <button type="button" data-step="5994" aria-pressed="false"><span>4</span>All pairs</button>
+        </div>
+        <div class="ex-tools">
+          <select aria-label="Finding shown in orange"></select>
+          <button type="button" class="ex-replay" aria-label="Replay">↻</button>
+        </div>
+      </div>
+      <div class="ex-main">
+        <div class="ex-text" aria-live="polite">
+          <h3 class="ex-step-title"></h3>
+          <p class="ex-step-body"></p>
+          <p class="ex-num-head">Median distance in the plot</p>
+          <dl class="ex-step-num"></dl>
+          <p class="ex-frozen">The encoders do not change. Only the map <i>W</i> changes.</p>
+        </div>
+        <div class="ex-stage">
+          <canvas role="img" aria-label="600 CT-RATE validation scans and their reports as feature vectors on two fixed axes. Choose a step to move the scans with the map W."></canvas>
+          <div class="ex-cue" hidden aria-hidden="true"><span>Hover a scan</span></div>
+          <div class="ex-tip" hidden></div>
+        </div>
+      </div>
+      <p class="ex-legend">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4" fill="#9aa5b4"/></svg>CT scan
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1.5 10.4 9.5H1.6Z" fill="none" stroke="#9aa5b4" stroke-width="1.5"/></svg>Report
+        <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4" fill="#d0562c"/></svg>Report states <b class="ex-fname">the finding</b>
+        <span class="sep">·</span>Hover: findings</p>
+      <figcaption><b>Zero pairs leave the scans at random. 200 pairs move them toward their own reports.</b> 600 CT-RATE validation scans. Each point is one feature vector. The two axes are fixed: the report-feature directions that the scans predict best. One random seed.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="abstract">
+  <div class="wrap">
+    <h2 id="abstract">Abstract</h2>
+    <div class="prose">
+      <p>The Platonic Representation Hypothesis posits that models trained on different modalities converge toward a shared representation. Related work aligns frozen image and text encoders on natural images without paired data. We test zero-pair alignment on five datasets across four modalities: natural images, environmental audio, chest radiographs, and 3D computed tomography (CT). <b>It succeeds only on COCO and fails on the other four.</b> We analyze the failures and find that <b>alignment must first locate the subspace where the modalities co-vary and then orient the mapping within it.</b> Consistent with previous studies, medical imaging is the hardest case: its shared subspace carries the smallest fraction of the variance. When this fraction is small, alignment needs image–text pairs, and random-matrix theory predicts how many pairs are needed. These findings motivate <i>LightAlign</i>: a few pairs let a ridge regression between two frozen encoders locate and orient the mapping simultaneously, and a classifier fitted only on report text then predicts findings from the mapped images. On 3D CT, <i>LightAlign</i> surpasses models trained end to end on image–report pairs without finding-level labels: <b>with only 200 pairs, <i>LightAlign</i> outperforms CT-CLIP on CT-RATE (0.754 vs. 0.733 AUROC)</b>, and with only 100 CT-RATE pairs, it does so on RAD-ChestCT, an out-of-distribution dataset from a different hospital. On CheXpert, it reaches 0.862 mean AUROC with only about 5&#8239;% as many pairs as models&nbsp;trained&nbsp;on&nbsp;MIMIC-CXR.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="method">
+  <div class="wrap">
+    <h2 id="method">Two Conditions for Zero-Pair Alignment</h2>
+    <div class="grid2">
+      <article class="tile step">
+        <span class="num">1</span>
+        <h3>Locate</h3>
+        <p>Find the subspace where image and text features change together. Without pairs, <b>this works only when the subspace has a large part of the variance.</b> On CT, it has 0.5–10.5&#8239;%.</p>
+      </article>
+      <article class="tile step">
+        <span class="num">2</span>
+        <h3>Orient</h3>
+        <p>Select the sign of each shared direction. Without pairs, <b>skewed features let the Gromov–Wasserstein loss select the correct sign.</b></p>
+      </article>
+    </div>
+    <p class="lead"><b>On CT, condition 1 fails without pairs.</b> A random-matrix threshold predicts how many pairs it needs. <i>LightAlign</i> fits a ridge regression on these pairs, which <b>finds and orients the map in one step.</b> A classifier, fitted on report text only, then predicts each finding. The fit takes approximately 1 minute on 4 CPU cores.</p>
+    <figure class="card">
+      <img src="static/fig_overview.webp" width="2200" height="912" loading="lazy" decoding="async"
+           alt="Four panels: shared directions on CT-RATE, detection of shared directions against the number of pairs, a direction and its mirror, and the LightAlign pipeline.">
+      <figcaption><b>The method in four panels.</b> (a) Image and report features agree on the first two shared directions. (b) The shared directions have 8&#8239;% of the image variance and 7&#8239;% of the report variance. Each direction becomes detectable above its predicted number of pairs. (c) A direction and its mirror. The mirror has the higher GW loss. (d) Ridge regression maps a new scan into the text space. A report classifier scores each finding.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="results">
+  <div class="wrap">
+    <h2 id="results">Results</h2>
+    <figure class="card narrow">
+      <img src="static/fig_teaser.webp" width="1560" height="1114" loading="lazy" decoding="async"
+           alt="Left: zero-pair alignment error against the share of image variance in the shared directions for five datasets; scaling the shared directions aligns every dataset. Right: mean AUROC on CT-RATE against the number of pairs; LightAlign passes CT-CLIP at 200 pairs.">
+      <figcaption><b>Zero pairs need a large shared variance. 200 pairs are better than an end-to-end model.</b> (a) Each marker is one dataset, before (open) and after (filled) we multiply the shared directions by 8. Lower FOSCTTM is better. (b) Mean AUROC for 18 findings on 3,002 CT-RATE scans. Dashed line: CT-CLIP, trained on approximately 20,000 patients.</figcaption>
+    </figure>
+    <p class="lead">Frozen encoders. CT: VoxelFM and Qwen3.5-9B. Chest radiographs: RAD-DINO and Qwen3.5-4B. Scores: mean AUROC.</p>
+    <div class="grid4">
+      <div class="tile stat"><span class="big">0.754</span><span class="vs">vs. 0.733 CT-CLIP</span><p>CT-RATE, 200 pairs</p></div>
+      <div class="tile stat"><span class="big">0.824</span><span class="vs">vs. 0.816 COLIPRI</span><p>CT-RATE, 5,994 pairs</p></div>
+      <div class="tile stat"><span class="big">0.636</span><span class="vs">vs. 0.629 CT-CLIP</span><p>RAD-ChestCT, 100 CT-RATE pairs</p></div>
+      <div class="tile stat"><span class="big">0.862</span><span class="vs">CheXpert</span><p>5&#8239;% of the MIMIC-CXR&nbsp;pairs</p></div>
+    </div>
+    <figure class="card">
+      <img src="static/fig_payoff.webp" width="2200" height="736" loading="lazy" decoding="async"
+           alt="Mean AUROC against the number of pairs on CT-RATE and on CheXpert, with end-to-end models as reference points.">
+      <figcaption><b>A few pairs are sufficient.</b> (a) CT-RATE, 3,002 scans. Red: <i>LightAlign</i>. Gray: the same encoders with a zero-shot prompt. Diamonds: end-to-end models. (b) CheXpert test set, against models trained on MIMIC-CXR.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="analysis">
+  <div class="wrap">
+    <h2 id="analysis">Analysis</h2>
+    <figure class="card">
+      <img src="static/fig_locate.webp" width="2200" height="784" loading="lazy" decoding="async"
+           alt="Zero-pair alignment error against the variance share of the shared directions for each encoder and text model, and the effect of shrinking the shared directions on COCO and Clotho.">
+      <figcaption><b>Without pairs, alignment works only when the shared subspace has a large part of the variance.</b> (a) Each marker is one encoder–text combination, before and after we multiply the shared directions by 8. (b) On COCO, a decrease of the shared directions to one quarter stops the alignment.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="card">
+        <img src="static/fig_orient.webp" width="1560" height="936" loading="lazy" decoding="async"
+             alt="Mean AUROC per seed before and after sign correction, and the Gromov-Wasserstein loss against AUROC for correct and mirrored maps.">
+        <figcaption><b>Found subspaces are frequently mirrored. The GW loss finds the mirror.</b> (a) Mean AUROC for each seed, before and after sign selection. (b) Mirrored maps have a higher GW loss.</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="static/fig_price.webp" width="1560" height="936" loading="lazy" decoding="async"
+             alt="Predicted against observed squared canonical correlations, and a 200-pair pilot score against AUROC for 15 CT encoders.">
+        <figcaption><b>The threshold predicts the number of pairs. A 200-pair pilot ranks the encoders.</b> (a) Predicted against measured canonical correlations. (b) Pilot score against AUROC for 15 CT encoders.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="examples">
+  <div class="wrap">
+    <h2 id="examples">Examples</h2>
+    <figure class="card">
+      <img src="static/fig_qual.webp" width="2200" height="2096" loading="lazy" decoding="async"
+           alt="Four CT-RATE validation patients with report impressions, the rank of each patient's own report, and the report-classifier scores of 18 findings.">
+      <figcaption><b>Four CT-RATE validation patients.</b> Left: the report impression and the rank of the own report among 2,025 reports. Right: classifier scores for 18 findings. Orange: findings that the report states.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="usage">
+  <div class="wrap">
+    <h2 id="usage">Use the Released Weights</h2>
+    <p class="lead">The weights contain the ridge map from VoxelFM to Qwen3.5-9B features and 18 report classifiers, fitted on 5,994 CT-RATE patients. To score a scan, you need VoxelFM and a CUDA GPU.</p>
+    <div class="codehead"><span>Quick start</span><button class="copy" type="button" data-copy="#quickstart">Copy</button></div>
+<pre id="quickstart"><code>git clone https://github.com/sypsyp97/lightalign
+cd lightalign
+pip install -e .
+lightalign-predict --ct volume.nii.gz --weights weights/ --voxelfm-code /path/to/VoxelFM</code></pre>
+    <p class="lead">The repository also contains the experiment code and all result files. For research only. The scores are not calibrated probabilities. <b>Do not use them for clinical decisions.</b></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span class="nowrap">Code: Apache License 2.0</span> · <span class="nowrap">Weights: CC BY-NC-SA 4.0, from CT&#8209;RATE</span><br><span class="nowrap">Data: <a href="https://huggingface.co/datasets/ibrahimhamamci/CT-RATE">CT&#8209;RATE</a></span></div>
+</footer>
+
+<script type="module" src="static/explorer.js"></script>
+
+<script>
+document.querySelectorAll(".copy").forEach((b) => b.addEventListener("click", async () => {
+  const text = document.querySelector(b.dataset.copy).textContent;
+  try { await navigator.clipboard.writeText(text); b.textContent = "Copied"; }
+  catch { b.textContent = "Select to copy"; }
+  setTimeout(() => (b.textContent = "Copy"), 1600);
+}));
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,wan_dit,text_mpnet,734796314,972,0.4795149563265505,0.5000760083369934
+emb_ctrate_train,wan_dit,text_mpnet,576165995,972,0.500524325379398,0.45149870544370896
+emb_ctrate_train,wan_dit,text_mpnet,2197670066,972,0.4846179183135705,0.5332042131684405

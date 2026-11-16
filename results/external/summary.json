@@ -1,0 +1,122 @@
+{
+ "n_encoders": 15,
+ "positive_control_median_true100_gap": -0.09751499899091731,
+ "positive_control_pass": false,
+ "E1_ctrate_in_domain_inside_band": 11,
+ "E1_null_informative": false,
+ "E1_bimcv_inside_band": 15,
+ "E1_pass": false,
+ "E2_non_anchor_lo_above_min": 0,
+ "E2_pass": false,
+ "E3_sign_agree": 7,
+ "E3_spearman": 0.3142857142857143,
+ "E3_pass": false,
+ "within_gate_pass": 0,
+ "per_encoder": {
+  "voxelfm": {
+   "own_anchor": 0.5578380278954883,
+   "own_true100": 0.5782185100547502,
+   "own_random": 0.4889141827187179,
+   "ctrate_anchor_minus_true100": -0.029013558577155152,
+   "bimcv_anchor_minus_true100": -0.020380482159261915
+  },
+  "voxelfm_patch": {
+   "own_anchor": 0.5448646365375522,
+   "own_true100": 0.5689197527086931,
+   "own_random": 0.4930231077157915,
+   "ctrate_anchor_minus_true100": -0.028275737222161368,
+   "bimcv_anchor_minus_true100": -0.024055116171140867
+  },
+  "ctfm": {
+   "own_anchor": 0.5294653036104806,
+   "own_true100": 0.5266712914809678,
+   "own_random": 0.4952857657698879,
+   "ctrate_anchor_minus_true100": 0.034284344453831994,
+   "bimcv_anchor_minus_true100": 0.0027940121295128018
+  },
+  "vjepa2_l": {
+   "own_anchor": 0.5573063655363267,
+   "own_true100": 0.5668912627180773,
+   "own_random": 0.5000362546796894,
+   "ctrate_anchor_minus_true100": 0.0015395169597718361,
+   "bimcv_anchor_minus_true100": -0.009584897181750596
+  },
+  "vjepa2_h": {
+   "own_anchor": 0.5514545101446597,
+   "own_true100": 0.5682899243881995,
+   "own_random": 0.5058813715742174,
+   "ctrate_anchor_minus_true100": 0.008360882428229188,
+   "bimcv_anchor_minus_true100": -0.016835414243539737
+  },
+  "vjepa2_g": {
+   "own_anchor": 0.5520712587680647,
+   "own_true100": 0.5627903023470365,
+   "own_random": 0.5004703231593604,
+   "ctrate_anchor_minus_true100": -0.0012138492124584843,
+   "bimcv_anchor_minus_true100": -0.010719043578971799
+  },
+  "wan_vae": {
+   "own_anchor": 0.5147768798433681,
+   "own_true100": 0.5434713256620213,
+   "own_random": 0.5158105597329901,
+   "ctrate_anchor_minus_true100": 0.043513125022578425,
+   "bimcv_anchor_minus_true100": -0.028694445818653214
+  },
+  "wan_dit": {
+   "own_anchor": 0.5279249318664434,
+   "own_true100": 0.5381670221404006,
+   "own_random": 0.5158606872104791,
+   "ctrate_anchor_minus_true100": 0.04195484920475023,
+   "bimcv_anchor_minus_true100": -0.010242090273957172
+  },
+  "ltx_vae": {
+   "own_anchor": 0.4995758259425469,
+   "own_true100": 0.5239379892182728,
+   "own_random": 0.5009555366165588,
+   "ctrate_anchor_minus_true100": 0.005077900482583719,
+   "bimcv_anchor_minus_true100": -0.024362163275725934
+  },
+  "dinov3_2d": {
+   "own_anchor": 0.5385959648277922,
+   "own_true100": 0.5684858324369365,
+   "own_random": 0.4905534183817881,
+   "ctrate_anchor_minus_true100": -0.0044839641423816134,
+   "bimcv_anchor_minus_true100": -0.02988986760914436
+  },
+  "dinov3_25d": {
+   "own_anchor": 0.5405215392355391,
+   "own_true100": 0.5624330344228884,
+   "own_random": 0.48958763771563546,
+   "ctrate_anchor_minus_true100": -0.003457564124811352,
+   "bimcv_anchor_minus_true100": -0.02191149518734925
+  },
+  "dalect0": {
+   "own_anchor": 0.5370199096178454,
+   "own_true100": 0.5605999876258385,
+   "own_random": 0.49325428676162675,
+   "ctrate_anchor_minus_true100": 0.0001992412441715885,
+   "bimcv_anchor_minus_true100": -0.02358007800799311
+  },
+  "dalect1s": {
+   "own_anchor": 0.552684558063613,
+   "own_true100": 0.5449264886352209,
+   "own_random": 0.5082676733393887,
+   "ctrate_anchor_minus_true100": 0.040806836909113575,
+   "bimcv_anchor_minus_true100": 0.007758069428392189
+  },
+  "videomae_b": {
+   "own_anchor": 0.5215612777254481,
+   "own_true100": 0.535720887994372,
+   "own_random": 0.5043988790317651,
+   "ctrate_anchor_minus_true100": 0.05810473894859125,
+   "bimcv_anchor_minus_true100": -0.014159610268923872
+  },
+  "dinov2_2d": {
+   "own_anchor": 0.5409031841290475,
+   "own_true100": 0.5678613488741867,
+   "own_random": 0.49621414900389527,
+   "ctrate_anchor_minus_true100": 0.006257648925841908,
+   "bimcv_anchor_minus_true100": -0.026958164745139235
+  }
+ }
+}

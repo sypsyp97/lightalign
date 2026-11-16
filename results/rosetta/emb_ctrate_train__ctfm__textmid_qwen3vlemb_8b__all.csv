@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,ctfm,textmid_qwen3vlemb_8b,734796314,972,0.5161855267652369,0.45253439527036754
+emb_ctrate_train,ctfm,textmid_qwen3vlemb_8b,576165995,972,0.4780859317815839,0.5396417359828959
+emb_ctrate_train,ctfm,textmid_qwen3vlemb_8b,2197670066,972,0.5113166691065242,0.47540692590943234

@@ -1,0 +1,2 @@
+data,image,text,scale,k,random,f_image_scaled,f_report_scaled,f_image,f_report,r1_before,r1_after,max_abs_dr
+emb_ctrate_train,voxelfm_b11,textmid_9B,1.0,10,False,0.08331853328178518,0.06753960122356992,0.08331853328178518,0.06753960122356992,0.879816399942261,0.879816399942261,0.0

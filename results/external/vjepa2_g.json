@@ -1,0 +1,415 @@
+{
+ "encoder": "vjepa2_g",
+ "model": "4B",
+ "eval_labels": [
+  "Medical material",
+  "Arterial wall calcification",
+  "Cardiomegaly",
+  "Pericardial effusion",
+  "Hiatal hernia",
+  "Lymphadenopathy",
+  "Emphysema",
+  "Atelectasis",
+  "Lung nodule",
+  "Lung opacity",
+  "Pulmonary fibrotic sequela",
+  "Pleural effusion",
+  "Consolidation",
+  "Bronchiectasis"
+ ],
+ "min_pos": 20,
+ "n_bimcv": 949,
+ "n_ctrate_test": 2025,
+ "prevalence_bimcv": {
+  "Medical material": 0.11169652265542676,
+  "Arterial wall calcification": 0.0737618545837724,
+  "Cardiomegaly": 0.1053740779768177,
+  "Pericardial effusion": 0.026343519494204427,
+  "Hiatal hernia": 0.09378292939936776,
+  "Lymphadenopathy": 0.17597471022128555,
+  "Emphysema": 0.12434141201264488,
+  "Atelectasis": 0.1928345626975764,
+  "Lung nodule": 0.2697576396206533,
+  "Lung opacity": 0.48366701791359323,
+  "Pulmonary fibrotic sequela": 0.09694415173867228,
+  "Pleural effusion": 0.17702845100105374,
+  "Consolidation": 0.12434141201264488,
+  "Bronchiectasis": 0.11169652265542676
+ },
+ "prevalence_ctrate_test": {
+  "Medical material": 0.09679012345679013,
+  "Arterial wall calcification": 0.25925925925925924,
+  "Cardiomegaly": 0.10320987654320987,
+  "Pericardial effusion": 0.05382716049382716,
+  "Hiatal hernia": 0.13925925925925925,
+  "Lymphadenopathy": 0.23160493827160494,
+  "Emphysema": 0.18123456790123457,
+  "Atelectasis": 0.22814814814814816,
+  "Lung nodule": 0.4380246913580247,
+  "Lung opacity": 0.345679012345679,
+  "Pulmonary fibrotic sequela": 0.2632098765432099,
+  "Pleural effusion": 0.08839506172839506,
+  "Consolidation": 0.1580246913580247,
+  "Bronchiectasis": 0.09728395061728395
+ },
+ "transfer": {
+  "own": {
+   "anchor_ridge": {
+    "mean_auc": {
+     "point": 0.5520712587680647,
+     "lo": 0.5345618656463058,
+     "hi": 0.5704365202362165
+    },
+    "foscttm": 0.47177097366537285,
+    "per_label_auc": {
+     "Medical material": 0.613180688914255,
+     "Arterial wall calcification": 0.5572046156346497,
+     "Cardiomegaly": 0.6381436984687868,
+     "Pericardial effusion": 0.532060606060606,
+     "Hiatal hernia": 0.534922916122289,
+     "Lymphadenopathy": 0.49584820129561846,
+     "Emphysema": 0.4462216239368537,
+     "Atelectasis": 0.589106707186577,
+     "Lung nodule": 0.3883331078643579,
+     "Lung opacity": 0.6125294562269352,
+     "Pulmonary fibrotic sequela": 0.40989295317335495,
+     "Pleural effusion": 0.7122843119321993,
+     "Consolidation": 0.6635338269187623,
+     "Bronchiectasis": 0.5357349090176593
+    },
+    "non_anchor_mean_auc": {
+     "point": 0.5458175898426955,
+     "lo": 0.527537840099769,
+     "hi": 0.5652996806166513
+    }
+   },
+   "anchor_procrustes": {
+    "mean_auc": {
+     "point": 0.561943744503747,
+     "lo": 0.5437683578389079,
+     "hi": 0.5803682468961963
+    },
+    "foscttm": 0.5064910654341901,
+    "per_label_auc": {
+     "Medical material": 0.6047919604288368,
+     "Arterial wall calcification": 0.576239232894523,
+     "Cardiomegaly": 0.668605418138987,
+     "Pericardial effusion": 0.5505367965367964,
+     "Hiatal hernia": 0.5516566501175856,
+     "Lymphadenopathy": 0.5038363171355499,
+     "Emphysema": 0.48450304921577025,
+     "Atelectasis": 0.5852016721596827,
+     "Lung nodule": 0.433175505050505,
+     "Lung opacity": 0.5933742385843226,
+     "Pulmonary fibrotic sequela": 0.4689716402009031,
+     "Pleural effusion": 0.6848683007133711,
+     "Consolidation": 0.6254257684227702,
+     "Bronchiectasis": 0.5360258734528525
+    }
+   },
+   "random_ridge": {
+    "mean_auc": {
+     "point": 0.5004703231593604,
+     "lo": 0.4921121570581723,
+     "hi": 0.5089791162263506
+    },
+    "foscttm": 0.5087987355110642,
+    "per_label_auc": {
+     "Medical material": 0.48600908704312984,
+     "Arterial wall calcification": 0.4923549488054607,
+     "Cardiomegaly": 0.5373074204946995,
+     "Pericardial effusion": 0.4982077922077922,
+     "Hiatal hernia": 0.4687718839822315,
+     "Lymphadenopathy": 0.4899612539626629,
+     "Emphysema": 0.4788125395174284,
+     "Atelectasis": 0.5100329580961349,
+     "Lung nodule": 0.46784248737373735,
+     "Lung opacity": 0.5271495264772575,
+     "Pulmonary fibrotic sequela": 0.5074805945918522,
+     "Pleural effusion": 0.5033732699225657,
+     "Consolidation": 0.5454424932182993,
+     "Bronchiectasis": 0.4938382685377918
+    }
+   },
+   "true100_ridge": {
+    "mean_auc": {
+     "point": 0.5627903023470365,
+     "lo": 0.5442871812398186,
+     "hi": 0.5806203810140762
+    },
+    "foscttm": 0.45859965853463336,
+    "per_label_auc": {
+     "Medical material": 0.6145459835717004,
+     "Arterial wall calcification": 0.5751015764667642,
+     "Cardiomegaly": 0.663844522968198,
+     "Pericardial effusion": 0.5075497835497836,
+     "Hiatal hernia": 0.5449385941991116,
+     "Lymphadenopathy": 0.5040154984149348,
+     "Emphysema": 0.5439576577127823,
+     "Atelectasis": 0.5944527671959937,
+     "Lung nodule": 0.4278803661616162,
+     "Lung opacity": 0.6090907474100751,
+     "Pulmonary fibrotic sequela": 0.487255846988991,
+     "Pleural effusion": 0.661456618498872,
+     "Consolidation": 0.6028493340675926,
+     "Bronchiectasis": 0.5421249356520961
+    }
+   },
+   "anchor_minus_true100": {
+    "point": -0.010719043578971799,
+    "lo": -0.024515082693183976,
+    "hi": 0.004215276606421801
+   }
+  },
+  "ctrate": {
+   "anchor_ridge": {
+    "mean_auc": {
+     "point": 0.5512826870504949,
+     "lo": 0.5333752065368234,
+     "hi": 0.5691219444899293
+    },
+    "foscttm": 0.471729290881363,
+    "per_label_auc": {
+     "Medical material": 0.6026477763602587,
+     "Arterial wall calcification": 0.5588298391028766,
+     "Cardiomegaly": 0.6349140164899882,
+     "Pericardial effusion": 0.5187705627705628,
+     "Hiatal hernia": 0.5428769270969427,
+     "Lymphadenopathy": 0.5004288098993829,
+     "Emphysema": 0.4423157722980277,
+     "Atelectasis": 0.5972263835979967,
+     "Lung nodule": 0.38965097402597404,
+     "Lung opacity": 0.6198737272686853,
+     "Pulmonary fibrotic sequela": 0.4200446451220131,
+     "Pleural effusion": 0.6977028839704896,
+     "Consolidation": 0.6502437333006996,
+     "Bronchiectasis": 0.5424315674030306
+    }
+   },
+   "anchor_procrustes": {
+    "mean_auc": {
+     "point": 0.5612949750430484,
+     "lo": 0.5430119028721373,
+     "hi": 0.5794104125746337
+    },
+    "foscttm": 0.5009021266000631,
+    "per_label_auc": {
+     "Medical material": 0.5982385460730992,
+     "Arterial wall calcification": 0.5794831789371038,
+     "Cardiomegaly": 0.669773851590106,
+     "Pericardial effusion": 0.5356450216450217,
+     "Hiatal hernia": 0.5512385680689835,
+     "Lymphadenopathy": 0.5046388042329663,
+     "Emphysema": 0.4836872055314202,
+     "Atelectasis": 0.5905662800154089,
+     "Lung nodule": 0.42589172979797973,
+     "Lung opacity": 0.5969205459961762,
+     "Pulmonary fibrotic sequela": 0.47531581350514945,
+     "Pleural effusion": 0.6789814645448449,
+     "Consolidation": 0.622864019253911,
+     "Bronchiectasis": 0.5448846214105061
+    }
+   },
+   "random_ridge": {
+    "mean_auc": {
+     "point": 0.501117832552568,
+     "lo": 0.4924883279791518,
+     "hi": 0.5103635941993151
+    },
+    "foscttm": 0.505759004592887,
+    "per_label_auc": {
+     "Medical material": 0.4805479084133485,
+     "Arterial wall calcification": 0.49460425808548675,
+     "Cardiomegaly": 0.5480353356890458,
+     "Pericardial effusion": 0.5115324675324675,
+     "Hiatal hernia": 0.47046772929187347,
+     "Lymphadenopathy": 0.48638988008637457,
+     "Emphysema": 0.47515959942075103,
+     "Atelectasis": 0.512773759077744,
+     "Lung nodule": 0.4730609668109668,
+     "Lung opacity": 0.5157538570983948,
+     "Pulmonary fibrotic sequela": 0.4937369996448683,
+     "Pleural effusion": 0.519774708859216,
+     "Consolidation": 0.5477023802239491,
+     "Bronchiectasis": 0.486109805501466
+    }
+   },
+   "true100_ridge": {
+    "mean_auc": {
+     "point": 0.563721955463541,
+     "lo": 0.5449577200613472,
+     "hi": 0.5809227781118349
+    },
+    "foscttm": 0.4590072605852041,
+    "per_label_auc": {
+     "Medical material": 0.6111237941762349,
+     "Arterial wall calcification": 0.5760507069722086,
+     "Cardiomegaly": 0.6643816254416961,
+     "Pericardial effusion": 0.5116796536796537,
+     "Hiatal hernia": 0.5438280637575124,
+     "Lymphadenopathy": 0.5073663414858263,
+     "Emphysema": 0.543241754879765,
+     "Atelectasis": 0.5932271825821456,
+     "Lung nodule": 0.42876871392496396,
+     "Lung opacity": 0.6105499977768886,
+     "Pulmonary fibrotic sequela": 0.48834914514737965,
+     "Pleural effusion": 0.6591259679287849,
+     "Consolidation": 0.6024638479267372,
+     "Bronchiectasis": 0.5519505808097763
+    }
+   },
+   "anchor_minus_true100": {
+    "point": -0.0124392684130461,
+    "lo": -0.025818078431004917,
+    "hi": 0.002370176725741559
+   }
+  },
+  "ctrate_test": {
+   "anchor_ridge": {
+    "mean_auc": {
+     "point": 0.6551754647121915,
+     "lo": 0.6446819669494556,
+     "hi": 0.6652675061528474
+    },
+    "foscttm": 0.3956197238081296,
+    "per_label_auc": {
+     "Medical material": 0.6674657725309917,
+     "Arterial wall calcification": 0.7508289523809524,
+     "Cardiomegaly": 0.8643609173112999,
+     "Pericardial effusion": 0.7344132462507901,
+     "Hiatal hernia": 0.6350878692073259,
+     "Lymphadenopathy": 0.6419102613995757,
+     "Emphysema": 0.5621828604109216,
+     "Atelectasis": 0.656000642564942,
+     "Lung nodule": 0.43731778887781525,
+     "Lung opacity": 0.6586831266846362,
+     "Pulmonary fibrotic sequela": 0.4779906845263545,
+     "Pleural effusion": 0.8851159384324857,
+     "Consolidation": 0.7281880498533724,
+     "Bronchiectasis": 0.47291039553921516
+    }
+   },
+   "anchor_procrustes": {
+    "mean_auc": {
+     "point": 0.6427239634422189,
+     "lo": 0.631521293701177,
+     "hi": 0.6534606389070652
+    },
+    "foscttm": 0.4056743766164056,
+    "per_label_auc": {
+     "Medical material": 0.6566357215384787,
+     "Arterial wall calcification": 0.7465577142857143,
+     "Cardiomegaly": 0.8224933077587842,
+     "Pericardial effusion": 0.6993583727566988,
+     "Hiatal hernia": 0.6159853191896258,
+     "Lymphadenopathy": 0.6231151440739746,
+     "Emphysema": 0.5657257521126204,
+     "Atelectasis": 0.6375759237563461,
+     "Lung nodule": 0.46027009944462377,
+     "Lung opacity": 0.617244204851752,
+     "Pulmonary fibrotic sequela": 0.5068414910793777,
+     "Pleural effusion": 0.8459347403717536,
+     "Consolidation": 0.6866521260997067,
+     "Bronchiectasis": 0.5137455708716081
+    }
+   },
+   "random_ridge": {
+    "mean_auc": {
+     "point": 0.482080672130881,
+     "lo": 0.47525209787423117,
+     "hi": 0.4886009285585272
+    },
+    "foscttm": 0.48398070072707755,
+    "per_label_auc": {
+     "Medical material": 0.47054094464467033,
+     "Arterial wall calcification": 0.48662095238095243,
+     "Cardiomegaly": 0.44993096979533337,
+     "Pericardial effusion": 0.4775411311792534,
+     "Hiatal hernia": 0.4680403478147646,
+     "Lymphadenopathy": 0.506111564834659,
+     "Emphysema": 0.48054712844666925,
+     "Atelectasis": 0.4945517694078155,
+     "Lung nodule": 0.4994152996911054,
+     "Lung opacity": 0.4790637196765498,
+     "Pulmonary fibrotic sequela": 0.4933136829821588,
+     "Pleural effusion": 0.4953915154009575,
+     "Consolidation": 0.45905461876832837,
+     "Bronchiectasis": 0.48900576480911706
+    }
+   },
+   "true100_ridge": {
+    "mean_auc": {
+     "point": 0.6563893139246499,
+     "lo": 0.6466372565204475,
+     "hi": 0.666732704763259
+    },
+    "foscttm": 0.37285348655638517,
+    "per_label_auc": {
+     "Medical material": 0.6969315227457851,
+     "Arterial wall calcification": 0.7709650793650793,
+     "Cardiomegaly": 0.7937920241131463,
+     "Pericardial effusion": 0.6832180958035663,
+     "Hiatal hernia": 0.6524570419469163,
+     "Lymphadenopathy": 0.6759456481821521,
+     "Emphysema": 0.6157992131289791,
+     "Atelectasis": 0.6381193342805627,
+     "Lung nodule": 0.4924214835259549,
+     "Lung opacity": 0.6029321832884097,
+     "Pulmonary fibrotic sequela": 0.5346307259731702,
+     "Pleural effusion": 0.8088719683809777,
+     "Consolidation": 0.6590590175953078,
+     "Bronchiectasis": 0.5643070566150906
+    }
+   },
+   "anchor_minus_true100": {
+    "point": -0.0012138492124584843,
+    "lo": -0.011026163094094607,
+    "hi": 0.00819173011874431
+   }
+  }
+ },
+ "within": {
+  "anchor_procrustes": {
+   "mean_auc": 0.5285494726848492,
+   "foscttm": 0.5208766233766233
+  },
+  "anchor_ridge": {
+   "mean_auc": 0.5239908143044977,
+   "foscttm": 0.5213246753246754
+  },
+  "random_ridge": {
+   "mean_auc": 0.512431511255329,
+   "foscttm": 0.4721590909090909
+  },
+  "true100_ridge": {
+   "mean_auc": 0.5373510068828455,
+   "foscttm": 0.3028571428571428
+  }
+ },
+ "within_true100_minus_ctrate_true100": -0.1190383070418044,
+ "gw": {
+  "ctrate_test": {
+   "point": 0.5973647481272808,
+   "lo": 0.5861492889799845,
+   "hi": 0.6088920168030709
+  },
+  "bimcv_all": {
+   "point": 0.5006667013640969,
+   "lo": 0.4940538750340928,
+   "hi": 0.5077144026365439
+  }
+ },
+ "non_anchor_labels": [
+  "Medical material",
+  "Arterial wall calcification",
+  "Hiatal hernia",
+  "Lymphadenopathy",
+  "Emphysema",
+  "Atelectasis",
+  "Lung opacity",
+  "Pulmonary fibrotic sequela",
+  "Consolidation",
+  "Bronchiectasis"
+ ],
+ "within_gate_pass": false
+}

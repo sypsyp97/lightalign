@@ -1,0 +1,63 @@
+{
+ "encoder": "vjepa2_g",
+ "model": "4B",
+ "anchors": [
+  "Pleural effusion",
+  "Pericardial effusion",
+  "Lung nodule",
+  "Cardiomegaly"
+ ],
+ "diagnostics": {
+  "image_anchor_auc_vs_label": [
+   0.9949355491366256,
+   0.824099344978166,
+   0.5914909122085048,
+   0.9210390946502057
+  ],
+  "text_anchor_auc_vs_label": [
+   0.8697524335757916,
+   0.7417407315604971,
+   0.629228990907993,
+   0.8463791968400264
+  ],
+  "pseudo_pair_label_agreement": [
+   0.8744855967078189,
+   0.8847736625514403,
+   0.5216049382716049,
+   0.8508230452674898
+  ],
+  "random_pair_label_agreement": [
+   0.8189300411522634,
+   0.8909465020576132,
+   0.5154320987654321,
+   0.8034979423868313
+  ]
+ },
+ "summary": {
+  "anchor_procrustes": {
+   "mean_auc": 0.6483495394169159,
+   "auc_anchor_labels": 0.7070240619335042,
+   "auc_other_labels": 0.631585390126462,
+   "foscttm": 0.4056656663250866
+  },
+  "anchor_ridge": {
+   "mean_auc": 0.6659014161763706,
+   "auc_anchor_labels": 0.7303019727180977,
+   "auc_other_labels": 0.6475012571644484,
+   "foscttm": 0.3956197238081296
+  },
+  "random_ridge": {
+   "mean_auc": 0.47855502348170714,
+   "auc_anchor_labels": 0.48056972901666245,
+   "auc_other_labels": 0.47797939332886274,
+   "foscttm": 0.48398070072707755
+  },
+  "true100_ridge": {
+   "mean_auc": 0.6635315444830372,
+   "auc_anchor_labels": 0.6945758929559113,
+   "auc_other_labels": 0.6546617306336445,
+   "foscttm": 0.37285348655638517
+  }
+ },
+ "gate_pass": true
+}

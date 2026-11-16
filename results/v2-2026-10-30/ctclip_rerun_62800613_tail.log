@@ -1,0 +1,5 @@
+test all pooling
+test all pooling
+[ctclip] all (3039 volumes): mean AUC 18 = 0.7308; rescale {'v2-hu': 3039}
+[ctclip] chest (3002 volumes): mean AUC 18 = 0.7330; rescale {'v2-hu': 3039}
+CTCLIP_RERUN_EXIT rc=0

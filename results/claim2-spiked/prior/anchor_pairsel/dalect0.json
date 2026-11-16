@@ -1,0 +1,177 @@
+{
+ "encoder": "dalect0",
+ "model": "4B",
+ "summary": [
+  {
+   "method": "anchors+blind",
+   "m": 10,
+   "auc_other_labels": 0.63933627732941,
+   "mean_auc": 0.6573718166598251,
+   "foscttm": 0.4017556726687161
+  },
+  {
+   "method": "anchors+blind",
+   "m": 25,
+   "auc_other_labels": 0.6596986716393696,
+   "mean_auc": 0.6760567844120169,
+   "foscttm": 0.37470926657883175
+  },
+  {
+   "method": "anchors+blind",
+   "m": 50,
+   "auc_other_labels": 0.6527087631334765,
+   "mean_auc": 0.6684279554365166,
+   "foscttm": 0.3691951154052603
+  },
+  {
+   "method": "anchors+random",
+   "m": 10,
+   "auc_other_labels": 0.6177498261608498,
+   "mean_auc": 0.6367379843325025,
+   "foscttm": 0.4138186697896843
+  },
+  {
+   "method": "anchors+random",
+   "m": 25,
+   "auc_other_labels": 0.6283606104926325,
+   "mean_auc": 0.6461043343878741,
+   "foscttm": 0.3962944176060118
+  },
+  {
+   "method": "anchors+random",
+   "m": 50,
+   "auc_other_labels": 0.6541445802963713,
+   "mean_auc": 0.6715354094646344,
+   "foscttm": 0.3761340213731518
+  },
+  {
+   "method": "anchors+residual",
+   "m": 10,
+   "auc_other_labels": 0.6367340196393286,
+   "mean_auc": 0.6478781601601555,
+   "foscttm": 0.40364070658273554
+  },
+  {
+   "method": "anchors+residual",
+   "m": 25,
+   "auc_other_labels": 0.6537882239940281,
+   "mean_auc": 0.6704639835846217,
+   "foscttm": 0.37924064314644024
+  },
+  {
+   "method": "anchors+residual",
+   "m": 50,
+   "auc_other_labels": 0.6548957666073019,
+   "mean_auc": 0.6723325380487714,
+   "foscttm": 0.3678548772751672
+  },
+  {
+   "method": "ot_refine",
+   "m": 10,
+   "auc_other_labels": 0.5542245847941962,
+   "mean_auc": 0.560073353758062,
+   "foscttm": 0.4517739472014834
+  },
+  {
+   "method": "ot_refine",
+   "m": 25,
+   "auc_other_labels": 0.5684972367952884,
+   "mean_auc": 0.5731728523322932,
+   "foscttm": 0.4412104621090128
+  },
+  {
+   "method": "ot_refine",
+   "m": 50,
+   "auc_other_labels": 0.613218799738697,
+   "mean_auc": 0.6216874188455455,
+   "foscttm": 0.41629658907919775
+  },
+  {
+   "method": "random_alone",
+   "m": 10,
+   "auc_other_labels": 0.5538932569799713,
+   "mean_auc": 0.5581415476909389,
+   "foscttm": 0.453550895427707
+  },
+  {
+   "method": "random_alone",
+   "m": 25,
+   "auc_other_labels": 0.5694314831027126,
+   "mean_auc": 0.5765054141659107,
+   "foscttm": 0.44062836090372326
+  },
+  {
+   "method": "random_alone",
+   "m": 50,
+   "auc_other_labels": 0.620097873340136,
+   "mean_auc": 0.6278541900997243,
+   "foscttm": 0.4012357878299907
+  },
+  {
+   "method": "random_alone",
+   "m": 100,
+   "auc_other_labels": 0.662145163246172,
+   "mean_auc": 0.6718578105470865,
+   "foscttm": 0.3570721465866393
+  },
+  {
+   "method": "random_alone",
+   "m": 200,
+   "auc_other_labels": 0.6813134025785547,
+   "mean_auc": 0.6893715626119876,
+   "foscttm": 0.32596486605182257
+  },
+  {
+   "method": "random_alone",
+   "m": 400,
+   "auc_other_labels": 0.6913863071987498,
+   "mean_auc": 0.6996017941115154,
+   "foscttm": 0.30929180695847364
+  }
+ ],
+ "contrasts": {
+  "m10_residual_minus_random": {
+   "point": 0.018984193478478795,
+   "lo": 0.011352549551100048,
+   "hi": 0.026360537381490596
+  },
+  "m10_residual_minus_blind": {
+   "point": -0.0026022576900813776,
+   "lo": -0.008571475422019331,
+   "hi": 0.0032741648386047538
+  },
+  "m25_residual_minus_random": {
+   "point": 0.025427613501395663,
+   "lo": 0.020668888686764926,
+   "hi": 0.03108244146627525
+  },
+  "m25_residual_minus_blind": {
+   "point": -0.005910447645341432,
+   "lo": -0.008836800712741514,
+   "hi": -0.0030308022160151797
+  },
+  "m50_residual_minus_random": {
+   "point": 0.0007511863109305184,
+   "lo": -0.0019856934756800533,
+   "hi": 0.0035454523585142198
+  },
+  "m50_residual_minus_blind": {
+   "point": 0.0021870034738253885,
+   "lo": -8.648335312787248e-05,
+   "hi": 0.004391249517942311
+  },
+  "m25_residual_minus_random100": {
+   "point": -0.008356939252143869,
+   "lo": -0.014213996771539786,
+   "hi": -0.0030448350367548705
+  },
+  "m25_residual_minus_random100_foscttm": {
+   "point": 0.02216849655980091,
+   "lo": 0.01457416007905144,
+   "hi": 0.029595836383155213
+  }
+ },
+ "pass_voxelfm_criteria": false,
+ "equivalent_random_pairs_residual_m25": 87.13045846984643,
+ "residual_minus_blind_m25_sign": -1.0
+}

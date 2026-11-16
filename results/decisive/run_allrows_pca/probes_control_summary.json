@@ -1,0 +1,159 @@
+{
+ "per_encoder": {
+  "image/ctfm": {
+   "auc_cca": 0.5979361998417987,
+   "auc_pcs": 0.5660323325714002,
+   "auc_random": 0.5531874190315402
+  },
+  "image/dalect0": {
+   "auc_cca": 0.6326494050408564,
+   "auc_pcs": 0.5945481622246951,
+   "auc_random": 0.5684184805485677
+  },
+  "image/dalect1s": {
+   "auc_cca": 0.6207123332762292,
+   "auc_pcs": 0.5667960342398245,
+   "auc_random": 0.5562132559377871
+  },
+  "image/dinov2_2d": {
+   "auc_cca": 0.6175592451912866,
+   "auc_pcs": 0.5624011679450243,
+   "auc_random": 0.5497064085104657
+  },
+  "image/dinov3_25d": {
+   "auc_cca": 0.6141928376214683,
+   "auc_pcs": 0.5691587053214345,
+   "auc_random": 0.5530509593113857
+  },
+  "image/dinov3_2d": {
+   "auc_cca": 0.6285899382456346,
+   "auc_pcs": 0.5753374069651895,
+   "auc_random": 0.557563656008294
+  },
+  "image/ltx_vae": {
+   "auc_cca": 0.5779980702526624,
+   "auc_pcs": 0.5385964335594304,
+   "auc_random": 0.5315681516906563
+  },
+  "image/videomae_b": {
+   "auc_cca": 0.6002741296961709,
+   "auc_pcs": 0.5436696202170423,
+   "auc_random": 0.536886810083726
+  },
+  "image/vjepa2_g": {
+   "auc_cca": 0.6261313406470961,
+   "auc_pcs": 0.5614392484381717,
+   "auc_random": 0.5555306983381203
+  },
+  "image/vjepa2_h": {
+   "auc_cca": 0.6332538064527397,
+   "auc_pcs": 0.5575556949401538,
+   "auc_random": 0.5529426721494023
+  },
+  "image/vjepa2_l": {
+   "auc_cca": 0.6224785401414229,
+   "auc_pcs": 0.5425790610217168,
+   "auc_random": 0.5468528536512457
+  },
+  "image/voxelfm": {
+   "auc_cca": 0.6775396085281333,
+   "auc_pcs": 0.5970314325205806,
+   "auc_random": 0.5780404929617118
+  },
+  "image/voxelfm_patch": {
+   "auc_cca": 0.6658315225667494,
+   "auc_pcs": 0.5808887995397244,
+   "auc_random": 0.5655527651428427
+  },
+  "image/wan_dit": {
+   "auc_cca": 0.6069661742186497,
+   "auc_pcs": 0.5320275246234194,
+   "auc_random": 0.5338036903139463
+  },
+  "image/wan_vae": {
+   "auc_cca": 0.6072895999351633,
+   "auc_pcs": 0.5575463301936268,
+   "auc_random": 0.5432316110912806
+  },
+  "report/ctfm": {
+   "auc_cca": 0.7045017312791205,
+   "auc_pcs": 0.6553807797945751,
+   "auc_random": 0.6171899595989775
+  },
+  "report/dalect0": {
+   "auc_cca": 0.7370784650253542,
+   "auc_pcs": 0.6726297603182597,
+   "auc_random": 0.6455058361789827
+  },
+  "report/dalect1s": {
+   "auc_cca": 0.7284823826627106,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/dinov2_2d": {
+   "auc_cca": 0.7178266304542416,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/dinov3_25d": {
+   "auc_cca": 0.7259231597855834,
+   "auc_pcs": 0.6726297603182597,
+   "auc_random": 0.6455058361789827
+  },
+  "report/dinov3_2d": {
+   "auc_cca": 0.728722717707935,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/ltx_vae": {
+   "auc_cca": 0.6852720957175957,
+   "auc_pcs": 0.6311630387000875,
+   "auc_random": 0.5989473120427329
+  },
+  "report/videomae_b": {
+   "auc_cca": 0.7038190953561847,
+   "auc_pcs": 0.6553807797945751,
+   "auc_random": 0.6171899595989775
+  },
+  "report/vjepa2_g": {
+   "auc_cca": 0.7300207959801911,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/vjepa2_h": {
+   "auc_cca": 0.726684776285621,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/vjepa2_l": {
+   "auc_cca": 0.7241444731442869,
+   "auc_pcs": 0.666032841956467,
+   "auc_random": 0.6282508431141908
+  },
+  "report/voxelfm": {
+   "auc_cca": 0.7672030904241545,
+   "auc_pcs": 0.700586973821016,
+   "auc_random": 0.6560244898519826
+  },
+  "report/voxelfm_patch": {
+   "auc_cca": 0.7569341073870335,
+   "auc_pcs": 0.6808933015481904,
+   "auc_random": 0.64828520211013
+  },
+  "report/wan_dit": {
+   "auc_cca": 0.7049875552050456,
+   "auc_pcs": 0.6311630387000875,
+   "auc_random": 0.5989473120427329
+  },
+  "report/wan_vae": {
+   "auc_cca": 0.708677386284396,
+   "auc_pcs": 0.6553807797945751,
+   "auc_random": 0.6171899595989775
+  }
+ },
+ "image_median_cca_minus_pcs": 0.055158077246262316,
+ "image_median_cca_minus_random": 0.06785283668082087,
+ "report_median_cca_minus_pcs": 0.060651934329154056,
+ "report_median_cca_minus_random": 0.0958936300300961,
+ "R1_pass": true
+}

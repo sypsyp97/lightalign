@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,vjepa2_g,text_mpnet,734796314,972,0.5138210608500463,0.42648896570334993
+emb_ctrate_train,vjepa2_g,text_mpnet,576165995,972,0.4946410969599375,0.43935534923796205
+emb_ctrate_train,vjepa2_g,text_mpnet,2197670066,972,0.4990831015468697,0.4367788466147529

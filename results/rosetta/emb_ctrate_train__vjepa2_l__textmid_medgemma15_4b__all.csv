@@ -1,0 +1,4 @@
+data,image,text,seed,half,foscttm,mean_auc
+emb_ctrate_train,vjepa2_l,textmid_medgemma15_4b,734796314,972,0.4595820524081394,0.5339634967961334
+emb_ctrate_train,vjepa2_l,textmid_medgemma15_4b,576165995,972,0.4628097399111892,0.5335969315745389
+emb_ctrate_train,vjepa2_l,textmid_medgemma15_4b,2197670066,972,0.4560164446396331,0.5606210247768665

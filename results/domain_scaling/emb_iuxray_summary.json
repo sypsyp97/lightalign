@@ -1,0 +1,260 @@
+{
+ "foscttm/n100": {
+  "share_encoder": 0.972418307641062,
+  "share_text": 0.025898211858302614,
+  "share_rest": 0.0016834805006353815,
+  "range_over_encoders": 0.07369749153972222,
+  "range_over_texts": 0.017376036672473283,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.437,
+    "dinov2_mean": 0.4308,
+    "rad_dino": 0.3625
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.4321,
+    "dinov2_mean": 0.4274,
+    "rad_dino": 0.3617
+   },
+   "textmid_27B": {
+    "dinov2": 0.419,
+    "dinov2_mean": 0.416,
+    "rad_dino": 0.3432
+   },
+   "textmid_2B": {
+    "dinov2": 0.4293,
+    "dinov2_mean": 0.4253,
+    "rad_dino": 0.3593
+   },
+   "textmid_4B": {
+    "dinov2": 0.4268,
+    "dinov2_mean": 0.4242,
+    "rad_dino": 0.3509
+   },
+   "textmid_9B": {
+    "dinov2": 0.4276,
+    "dinov2_mean": 0.4245,
+    "rad_dino": 0.3521
+   }
+  }
+ },
+ "foscttm/n400": {
+  "share_encoder": 0.9817552799619499,
+  "share_text": 0.016719236864458878,
+  "share_rest": 0.0015254831735913577,
+  "range_over_encoders": 0.07119137239496964,
+  "range_over_texts": 0.01250554090502698,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.359,
+    "dinov2_mean": 0.36,
+    "rad_dino": 0.2846
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.3653,
+    "dinov2_mean": 0.3646,
+    "rad_dino": 0.295
+   },
+   "textmid_27B": {
+    "dinov2": 0.3516,
+    "dinov2_mean": 0.3521,
+    "rad_dino": 0.2848
+   },
+   "textmid_2B": {
+    "dinov2": 0.3662,
+    "dinov2_mean": 0.3654,
+    "rad_dino": 0.2944
+   },
+   "textmid_4B": {
+    "dinov2": 0.3579,
+    "dinov2_mean": 0.3593,
+    "rad_dino": 0.2893
+   },
+   "textmid_9B": {
+    "dinov2": 0.3638,
+    "dinov2_mean": 0.3635,
+    "rad_dino": 0.2896
+   }
+  }
+ },
+ "foscttm/n1600": {
+  "share_encoder": 0.9508571919244672,
+  "share_text": 0.048273173076212275,
+  "share_rest": 0.0008696349993204677,
+  "range_over_encoders": 0.0692060379496987,
+  "range_over_texts": 0.020409581552998934,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.3132,
+    "dinov2_mean": 0.3222,
+    "rad_dino": 0.2555
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.3317,
+    "dinov2_mean": 0.3418,
+    "rad_dino": 0.2744
+   },
+   "textmid_27B": {
+    "dinov2": 0.3236,
+    "dinov2_mean": 0.3327,
+    "rad_dino": 0.262
+   },
+   "textmid_2B": {
+    "dinov2": 0.3343,
+    "dinov2_mean": 0.3443,
+    "rad_dino": 0.2735
+   },
+   "textmid_4B": {
+    "dinov2": 0.3254,
+    "dinov2_mean": 0.3347,
+    "rad_dino": 0.2668
+   },
+   "textmid_9B": {
+    "dinov2": 0.331,
+    "dinov2_mean": 0.3402,
+    "rad_dino": 0.2685
+   }
+  }
+ },
+ "foscttm/pilot": {
+  "rho_S_vs_score": 0.5988643028319721,
+  "best_cell": [
+   "rad_dino",
+   "text_mpnet"
+  ],
+  "pilot_pick": [
+   "rad_dino",
+   "textmid_2B"
+  ],
+  "score_loss_of_pick": 0.018043896847399432
+ },
+ "auc/n100": {
+  "share_encoder": 0.8694693418686243,
+  "share_text": 0.09561498911630192,
+  "share_rest": 0.0349156690150737,
+  "range_over_encoders": 0.06064095700413341,
+  "range_over_texts": 0.026978092825107436,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.5859,
+    "dinov2_mean": 0.5919,
+    "rad_dino": 0.663
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.5966,
+    "dinov2_mean": 0.602,
+    "rad_dino": 0.6669
+   },
+   "textmid_27B": {
+    "dinov2": 0.5788,
+    "dinov2_mean": 0.5842,
+    "rad_dino": 0.6217
+   },
+   "textmid_2B": {
+    "dinov2": 0.5858,
+    "dinov2_mean": 0.5943,
+    "rad_dino": 0.653
+   },
+   "textmid_4B": {
+    "dinov2": 0.5816,
+    "dinov2_mean": 0.5852,
+    "rad_dino": 0.6324
+   },
+   "textmid_9B": {
+    "dinov2": 0.583,
+    "dinov2_mean": 0.5886,
+    "rad_dino": 0.6385
+   }
+  }
+ },
+ "auc/n400": {
+  "share_encoder": 0.8534740259475281,
+  "share_text": 0.1341054193214523,
+  "share_rest": 0.01242055473101955,
+  "range_over_encoders": 0.08128483228647498,
+  "range_over_texts": 0.04016617361742303,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.6533,
+    "dinov2_mean": 0.6621,
+    "rad_dino": 0.7459
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.6608,
+    "dinov2_mean": 0.6727,
+    "rad_dino": 0.747
+   },
+   "textmid_27B": {
+    "dinov2": 0.6293,
+    "dinov2_mean": 0.6384,
+    "rad_dino": 0.6924
+   },
+   "textmid_2B": {
+    "dinov2": 0.6527,
+    "dinov2_mean": 0.6613,
+    "rad_dino": 0.7391
+   },
+   "textmid_4B": {
+    "dinov2": 0.6356,
+    "dinov2_mean": 0.6426,
+    "rad_dino": 0.7134
+   },
+   "textmid_9B": {
+    "dinov2": 0.6362,
+    "dinov2_mean": 0.6441,
+    "rad_dino": 0.7179
+   }
+  }
+ },
+ "auc/n1600": {
+  "share_encoder": 0.9451292113835398,
+  "share_text": 0.04749008194095659,
+  "share_rest": 0.007380706675503612,
+  "range_over_encoders": 0.07084636924608945,
+  "range_over_texts": 0.019398872792546595,
+  "cell_means": {
+   "text_mpnet": {
+    "dinov2": 0.7109,
+    "dinov2_mean": 0.7095,
+    "rad_dino": 0.7814
+   },
+   "textmid_0.8B": {
+    "dinov2": 0.7152,
+    "dinov2_mean": 0.7176,
+    "rad_dino": 0.787
+   },
+   "textmid_27B": {
+    "dinov2": 0.6983,
+    "dinov2_mean": 0.7038,
+    "rad_dino": 0.7596
+   },
+   "textmid_2B": {
+    "dinov2": 0.7083,
+    "dinov2_mean": 0.7147,
+    "rad_dino": 0.7886
+   },
+   "textmid_4B": {
+    "dinov2": 0.6994,
+    "dinov2_mean": 0.7051,
+    "rad_dino": 0.7689
+   },
+   "textmid_9B": {
+    "dinov2": 0.6985,
+    "dinov2_mean": 0.7043,
+    "rad_dino": 0.7702
+   }
+  }
+ },
+ "auc/pilot": {
+  "rho_S_vs_score": 0.5131647560473968,
+  "best_cell": [
+   "rad_dino",
+   "textmid_2B"
+  ],
+  "pilot_pick": [
+   "rad_dino",
+   "textmid_2B"
+  ],
+  "score_loss_of_pick": 0.0
+ }
+}

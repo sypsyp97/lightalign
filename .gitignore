@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+uv.lock
+data/
+models/
+embeddings/
+.DS_Store
+!docs/data/

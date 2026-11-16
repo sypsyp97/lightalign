@@ -1,0 +1,265 @@
+{
+ "gw": {
+  "median_auc": 0.5324361213472524,
+  "median_auc_resid": 0.5076632834978185,
+  "rho_mean_burden": 0.10099261460111739,
+  "rho_mean_length": 0.021063676244798647,
+  "per_finding": {
+   "Medical material": [
+    0.517,
+    0.476
+   ],
+   "Arterial wall calcification": [
+    0.549,
+    0.388
+   ],
+   "Cardiomegaly": [
+    0.574,
+    0.406
+   ],
+   "Pericardial effusion": [
+    0.557,
+    0.586
+   ],
+   "Coronary artery wall calcification": [
+    0.562,
+    0.519
+   ],
+   "Hiatal hernia": [
+    0.535,
+    0.485
+   ],
+   "Lymphadenopathy": [
+    0.511,
+    0.535
+   ],
+   "Emphysema": [
+    0.523,
+    0.459
+   ],
+   "Atelectasis": [
+    0.53,
+    0.476
+   ],
+   "Lung nodule": [
+    0.509,
+    0.493
+   ],
+   "Lung opacity": [
+    0.518,
+    0.534
+   ],
+   "Pulmonary fibrotic sequela": [
+    0.504,
+    0.494
+   ],
+   "Pleural effusion": [
+    0.561,
+    0.556
+   ],
+   "Mosaic attenuation pattern": [
+    0.563,
+    0.537
+   ],
+   "Peribronchial thickening": [
+    0.555,
+    0.511
+   ],
+   "Consolidation": [
+    0.525,
+    0.52
+   ],
+   "Bronchiectasis": [
+    0.508,
+    0.505
+   ],
+   "Interlobular septal thickening": [
+    0.567,
+    0.62
+   ]
+  }
+ },
+ "mini_vec2vec": {
+  "median_auc": 0.48990602087288254,
+  "median_auc_resid": 0.5121748118314859,
+  "rho_mean_burden": -0.026050996117798358,
+  "rho_mean_length": 0.06479576275612399,
+  "per_finding": {
+   "Medical material": [
+    0.499,
+    0.489
+   ],
+   "Arterial wall calcification": [
+    0.45,
+    0.359
+   ],
+   "Cardiomegaly": [
+    0.456,
+    0.451
+   ],
+   "Pericardial effusion": [
+    0.476,
+    0.517
+   ],
+   "Coronary artery wall calcification": [
+    0.456,
+    0.379
+   ],
+   "Hiatal hernia": [
+    0.491,
+    0.48
+   ],
+   "Lymphadenopathy": [
+    0.544,
+    0.52
+   ],
+   "Emphysema": [
+    0.504,
+    0.547
+   ],
+   "Atelectasis": [
+    0.489,
+    0.507
+   ],
+   "Lung nodule": [
+    0.48,
+    0.506
+   ],
+   "Lung opacity": [
+    0.529,
+    0.577
+   ],
+   "Pulmonary fibrotic sequela": [
+    0.493,
+    0.487
+   ],
+   "Pleural effusion": [
+    0.493,
+    0.542
+   ],
+   "Mosaic attenuation pattern": [
+    0.484,
+    0.577
+   ],
+   "Peribronchial thickening": [
+    0.431,
+    0.482
+   ],
+   "Consolidation": [
+    0.511,
+    0.525
+   ],
+   "Bronchiectasis": [
+    0.492,
+    0.532
+   ],
+   "Interlobular septal thickening": [
+    0.481,
+    0.581
+   ]
+  }
+ },
+ "ridge100": {
+  "median_auc": 0.6939702213630553,
+  "median_auc_resid": 0.5192947489164208,
+  "rho_mean_burden": 0.6474813355014388,
+  "rho_mean_length": 0.45737963581518226,
+  "per_finding": {
+   "Medical material": [
+    0.689,
+    0.526
+   ],
+   "Arterial wall calcification": [
+    0.877,
+    0.583
+   ],
+   "Cardiomegaly": [
+    0.852,
+    0.566
+   ],
+   "Pericardial effusion": [
+    0.718,
+    0.508
+   ],
+   "Coronary artery wall calcification": [
+    0.85,
+    0.566
+   ],
+   "Hiatal hernia": [
+    0.699,
+    0.479
+   ],
+   "Lymphadenopathy": [
+    0.728,
+    0.51
+   ],
+   "Emphysema": [
+    0.652,
+    0.439
+   ],
+   "Atelectasis": [
+    0.683,
+    0.534
+   ],
+   "Lung nodule": [
+    0.501,
+    0.515
+   ],
+   "Lung opacity": [
+    0.661,
+    0.451
+   ],
+   "Pulmonary fibrotic sequela": [
+    0.564,
+    0.59
+   ],
+   "Pleural effusion": [
+    0.834,
+    0.618
+   ],
+   "Mosaic attenuation pattern": [
+    0.732,
+    0.489
+   ],
+   "Peribronchial thickening": [
+    0.662,
+    0.418
+   ],
+   "Consolidation": [
+    0.681,
+    0.531
+   ],
+   "Bronchiectasis": [
+    0.581,
+    0.524
+   ],
+   "Interlobular septal thickening": [
+    0.761,
+    0.505
+   ]
+  }
+ },
+ "report_length_only": {
+  "median_auc": 0.7097473356043752,
+  "per_finding": {
+   "Medical material": 0.702,
+   "Arterial wall calcification": 0.784,
+   "Cardiomegaly": 0.754,
+   "Pericardial effusion": 0.671,
+   "Coronary artery wall calcification": 0.752,
+   "Hiatal hernia": 0.73,
+   "Lymphadenopathy": 0.715,
+   "Emphysema": 0.704,
+   "Atelectasis": 0.722,
+   "Lung nodule": 0.647,
+   "Lung opacity": 0.665,
+   "Pulmonary fibrotic sequela": 0.687,
+   "Pleural effusion": 0.811,
+   "Mosaic attenuation pattern": 0.688,
+   "Peribronchial thickening": 0.755,
+   "Consolidation": 0.703,
+   "Bronchiectasis": 0.678,
+   "Interlobular septal thickening": 0.752
+  }
+ }
+}

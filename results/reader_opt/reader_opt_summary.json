@@ -1,0 +1,128 @@
+{
+ "4B": {
+  "A": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.00011550614076871746,
+     "mean_median": 0.00018174848936647336,
+     "strat_better": 6
+    },
+    "400": {
+     "strat_median": -0.0007084174471099214,
+     "mean_median": -0.000820322976649468,
+     "strat_better": 1
+    },
+    "1600": {
+     "strat_median": -0.0011777922128233254,
+     "mean_median": -0.0007413225667929346,
+     "strat_better": 0
+    }
+   },
+   "pass": false
+  },
+  "B": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.014071828408939169,
+     "mean_median": 0.00898733472991875,
+     "strat_better": 0
+    },
+    "400": {
+     "strat_median": -0.036093946467464555,
+     "mean_median": -0.005731783887268249,
+     "strat_better": 0
+    },
+    "1600": {
+     "strat_median": -0.05080869366530516,
+     "mean_median": -0.017584933524926516,
+     "strat_better": 0
+    }
+   },
+   "pass": false
+  }
+ },
+ "9B": {
+  "A": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.0004805454168660406,
+     "mean_median": -0.0025255523104671385,
+     "strat_better": 1
+    },
+    "400": {
+     "strat_median": -0.0002243062389069017,
+     "mean_median": -0.0013715708275303662,
+     "strat_better": 4
+    },
+    "1600": {
+     "strat_median": -0.0001530517215342364,
+     "mean_median": -0.0011654599323571713,
+     "strat_better": 5
+    }
+   },
+   "pass": false
+  },
+  "B": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.01881094059445726,
+     "mean_median": 0.007195945023624195,
+     "strat_better": 0
+    },
+    "400": {
+     "strat_median": -0.03974958451453725,
+     "mean_median": -0.005849537462498611,
+     "strat_better": 0
+    },
+    "1600": {
+     "strat_median": -0.055004381079648224,
+     "mean_median": -0.01764723686935099,
+     "strat_better": 0
+    }
+   },
+   "pass": false
+  }
+ },
+ "granite42_8b": {
+  "A": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.0014677461599003072,
+     "mean_median": -0.0007291560150626264,
+     "strat_better": 0
+    },
+    "400": {
+     "strat_median": -0.0012464336963701195,
+     "mean_median": 2.266556536145714e-05,
+     "strat_better": 0
+    },
+    "1600": {
+     "strat_median": -0.0007374732390631467,
+     "mean_median": -1.153053572677809e-05,
+     "strat_better": 0
+    }
+   },
+   "pass": false
+  },
+  "B": {
+   "by_n": {
+    "100": {
+     "strat_median": -0.020872633114786043,
+     "mean_median": 0.02351107098774896,
+     "strat_better": 0
+    },
+    "400": {
+     "strat_median": -0.0481723025975328,
+     "mean_median": 0.002127403152592633,
+     "strat_better": 0
+    },
+    "1600": {
+     "strat_median": -0.06915319157119537,
+     "mean_median": -0.014803878306927198,
+     "strat_better": 0
+    }
+   },
+   "pass": false
+  }
+ }
+}

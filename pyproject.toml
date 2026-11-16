@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightalign"
+version = "0.1.0"
+description = "LightAlign: linear map from frozen VoxelFM chest-CT features to frozen Qwen3.5-9B report features."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "scipy>=1.11",
+    "torch>=2.4",
+    "nibabel>=5.0",
+    "omegaconf>=2.3",
+    "einops>=0.7",
+    "transformers>=4.50",
+    "huggingface_hub>=0.26",
+]
+
+[project.scripts]
+lightalign-predict = "lightalign.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lightalign*"]

@@ -1,0 +1,176 @@
+{
+ "encoder": "voxelfm",
+ "model": "4B",
+ "rounds": 5,
+ "summary": {
+  "anchor_ridge": {
+   "auc_other_labels": 0.6532663384524839,
+   "mean_auc": 0.6707700540030681,
+   "foscttm": 0.39624359537403014
+  },
+  "bottleneck": {
+   "auc_other_labels": 0.611358736817688,
+   "mean_auc": 0.6416563908249591,
+   "foscttm": 0.44466532474503484
+  },
+  "rematch_r1": {
+   "auc_other_labels": 0.6546267736975954,
+   "mean_auc": 0.6736224112362457,
+   "foscttm": 0.4050203484116528
+  },
+  "rematch_r2": {
+   "auc_other_labels": 0.6547251545598716,
+   "mean_auc": 0.673772107412569,
+   "foscttm": 0.40648867906114283
+  },
+  "rematch_r3": {
+   "auc_other_labels": 0.6548612477610334,
+   "mean_auc": 0.6739123376882892,
+   "foscttm": 0.40700483091787437
+  },
+  "rematch_r4": {
+   "auc_other_labels": 0.6547923837011134,
+   "mean_auc": 0.673865030474983,
+   "foscttm": 0.4073979895574099
+  },
+  "rematch_r5": {
+   "auc_other_labels": 0.6548858011325008,
+   "mean_auc": 0.6739499508831232,
+   "foscttm": 0.40762204167276633
+  },
+  "true100_ridge": {
+   "auc_other_labels": 0.69559347482127,
+   "mean_auc": 0.6984824242318338,
+   "foscttm": 0.3055400380617772
+  }
+ },
+ "bottleneck": {
+  "anchor_minus_bottleneck": {
+   "point": 0.0419076016347959,
+   "lo": 0.03578987769571626,
+   "hi": 0.04837171693284606
+  },
+  "verdict": "estimator advantage, not extra information"
+ },
+ "rematch": {
+  "r5_minus_anchor": {
+   "point": 0.001619462680016892,
+   "lo": -0.0005630104698148952,
+   "hi": 0.0037348422194768047
+  },
+  "r5_minus_bottleneck": {
+   "point": 0.04352706431481279,
+   "lo": 0.03689625601656492,
+   "hi": 0.05036860420068197
+  },
+  "foscttm_r5_minus_anchor": {
+   "point": 0.011378446298736189,
+   "lo": 0.008183821914800264,
+   "hi": 0.014811888205728804
+  },
+  "pass": false
+ },
+ "cooccurrence": {
+  "spearman": 0.18681318681318684,
+  "p": 0.5225040123791592,
+  "pass": false,
+  "per_label": [
+   {
+    "label": "Medical material",
+    "anchor_minus_true100": -0.026825186061302686,
+    "max_abs_phi": 0.2533063460263635
+   },
+   {
+    "label": "Arterial wall calcification",
+    "anchor_minus_true100": -0.09565511111111102,
+    "max_abs_phi": 0.3584407571976809
+   },
+   {
+    "label": "Coronary artery wall calcification",
+    "anchor_minus_true100": -0.09128389222760269,
+    "max_abs_phi": 0.2952810513709507
+   },
+   {
+    "label": "Hiatal hernia",
+    "anchor_minus_true100": -0.06371056668416308,
+    "max_abs_phi": 0.12443362048430254
+   },
+   {
+    "label": "Lymphadenopathy",
+    "anchor_minus_true100": -0.0673757543534621,
+    "max_abs_phi": 0.2208595068167335
+   },
+   {
+    "label": "Emphysema",
+    "anchor_minus_true100": -0.08131559312786163,
+    "max_abs_phi": 0.07238454364186372
+   },
+   {
+    "label": "Atelectasis",
+    "anchor_minus_true100": -0.01623113504111584,
+    "max_abs_phi": 0.26505928854699573
+   },
+   {
+    "label": "Lung opacity",
+    "anchor_minus_true100": 0.0356614555256064,
+    "max_abs_phi": 0.08962424697828301
+   },
+   {
+    "label": "Pulmonary fibrotic sequela",
+    "anchor_minus_true100": -0.10246945560814658,
+    "max_abs_phi": 0.08722576175323758
+   },
+   {
+    "label": "Mosaic attenuation pattern",
+    "anchor_minus_true100": 0.04248543745944722,
+    "max_abs_phi": 0.21874386176671667
+   },
+   {
+    "label": "Peribronchial thickening",
+    "anchor_minus_true100": -0.04647850392207187,
+    "max_abs_phi": 0.1436734528133277
+   },
+   {
+    "label": "Consolidation",
+    "anchor_minus_true100": 0.052314882697947374,
+    "max_abs_phi": 0.2122715881079459
+   },
+   {
+    "label": "Bronchiectasis",
+    "anchor_minus_true100": -0.13434060136178333,
+    "max_abs_phi": 0.011695865796199785
+   },
+   {
+    "label": "Interlobular septal thickening",
+    "anchor_minus_true100": 0.0026441146526162695,
+    "max_abs_phi": 0.29015140486343177
+   }
+  ]
+ },
+ "agreement_by_round": {
+  "0": {
+   "nonanchor_agreement_minus_random": 0.023162845385067587,
+   "anchor_rank_cost": 0.36095788602032475
+  },
+  "1": {
+   "nonanchor_agreement_minus_random": 0.025485008818342102,
+   "anchor_rank_cost": 0.38321628377964784
+  },
+  "2": {
+   "nonanchor_agreement_minus_random": 0.024838330393885923,
+   "anchor_rank_cost": 0.3855775228700506
+  },
+  "3": {
+   "nonanchor_agreement_minus_random": 0.02419165196942974,
+   "anchor_rank_cost": 0.38639248527441766
+  },
+  "4": {
+   "nonanchor_agreement_minus_random": 0.024456202233979974,
+   "anchor_rank_cost": 0.3866601789763894
+  },
+  "5": {
+   "nonanchor_agreement_minus_random": 0.024485596707818892,
+   "anchor_rank_cost": 0.3869132351241434
+  }
+ }
+}
