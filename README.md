@@ -6,6 +6,7 @@ Yipeng Sun<sup>1</sup>, Jiajun Wang<sup>1</sup>, Siyuan Mei<sup>1</sup>, Yan Xia
 
 <sup>1</sup>Pattern Recognition Lab, FAU Erlangen-Nürnberg &nbsp; <sup>2</sup>Department of Orthodontics and Orofacial Orthopedics, FAU Erlangen-Nürnberg
 
+[![arXiv](https://img.shields.io/badge/arXiv-2611.20000-b31b1b)](https://arxiv.org/abs/2611.20000)
 [![Project page](https://img.shields.io/badge/Project-Page-b4341f)](https://sypsyp97.github.io/lightalign/)
 [![Weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-lightalign--ctrate-ffcc4d)](https://huggingface.co/yipengsun/lightalign-ctrate)
 [![Code license](https://img.shields.io/badge/Code-Apache--2.0-blue)](LICENSE)
@@ -113,6 +114,17 @@ Paths are relative to `results/`. CT-RATE rows use the 3,002 chest volumes, the 
 | Table S27, no block or layer choice | `official_ablation_no_selection/voxelfm_9B_n*.csv`, `voxelfm_b11_9B_last_n*.csv`, `voxelfm_9B_last_n*.csv`; shaded row: `official_ablation/voxelfm_b11_9B_n*.csv` (`reader=TC`; `unit=chest`, `metric=mean_auc`) | `align.official_ablation run --encoder voxelfm` and/or `--text-layer last` |
 
 </details>
+
+## Citation
+
+```bibtex
+@article{sun2026whatmatters,
+  title   = {What Matters for Cross-Modal Alignment},
+  author  = {Sun, Yipeng and Wang, Jiajun and Mei, Siyuan and Xia, Yan and Bayer, Siming and Christlein, Vincent and Maier, Andreas},
+  journal = {arXiv preprint arXiv:2611.20000},
+  year    = {2026}
+}
+```
 
 ## License
 
