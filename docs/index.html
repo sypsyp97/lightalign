@@ -28,8 +28,7 @@
       <span><a href="https://scholar.google.com/citations?user=iIV3XoAAAAAJ">Vincent Christlein</a><sup>1</sup>,</span>
       <span><a href="https://scholar.google.com/citations?user=MA6SDuEAAAAJ">Andreas Maier</a><sup>1</sup></span>
     </p>
-    <p class="affil"><sup>1</sup>Pattern Recognition Lab, Friedrich-Alexander-Universität Erlangen-Nürnberg</p>
-    <p class="affil"><sup>2</sup>Department of Orthodontics and Orofacial Orthopedics, Friedrich-Alexander-Universität Erlangen-Nürnberg</p>
+    <p class="affil"><span><sup>1</sup>Pattern Recognition Lab, FAU Erlangen-Nürnberg</span> <span><sup>2</sup>Department of Orthodontics and Orofacial Orthopedics, FAU Erlangen-Nürnberg</span></p>
     <div class="logos">
       <a href="https://www.fau.eu/"><img src="static/logo_fau.svg" width="300" height="43" alt="Friedrich-Alexander-Universität Erlangen-Nürnberg"></a>
       <a href="https://lme.tf.fau.de/"><img src="static/logo_prl.webp" width="540" height="189" alt="Pattern Recognition Lab"></a>
@@ -86,12 +85,13 @@
         <span class="sep">·</span>Hover: findings</p>
       <figcaption><b>Zero pairs leave the scans at random. 200 pairs move them toward their own reports.</b> 600 CT-RATE validation scans. Each point is one feature vector. The two axes are fixed: the report-feature directions that the scans predict best. One random seed.</figcaption>
     </figure>
+    <p class="takeaway">Without pairs, alignment fails when the <b>shared subspace</b> holds <b>little variance</b>. On 3D CT, <b>200 pairs</b> let <span class="la">LightAlign</span> outperform CT-CLIP.</p>
   </div>
 </header>
 
 <main>
-<section aria-labelledby="abstract">
-  <div class="wrap">
+<section class="alt" aria-labelledby="abstract">
+  <div class="col">
     <h2 id="abstract">Abstract</h2>
     <div class="prose">
       <p>The Platonic Representation Hypothesis posits that models trained on different modalities converge toward a shared representation. Related work aligns frozen image and text encoders on natural images without paired data. We test zero-pair alignment on five datasets across four modalities: natural images, environmental audio, chest radiographs, and 3D computed tomography (CT). <b>It succeeds only on COCO and fails on the other four.</b> We analyze the failures and find that <b>alignment must first locate the subspace where the modalities co-vary and then orient the mapping within it.</b> Consistent with previous studies, medical imaging is the hardest case: its shared subspace carries the smallest fraction of the variance. When this fraction is small, alignment needs image–text pairs, and random-matrix theory predicts how many pairs are needed. These findings motivate <i>LightAlign</i>: a few pairs let a ridge regression between two frozen encoders locate and orient the mapping simultaneously, and a classifier fitted only on report text then predicts findings from the mapped images. On 3D CT, <i>LightAlign</i> surpasses models trained end to end on image–report pairs without finding-level labels: <b>with only 200 pairs, <i>LightAlign</i> outperforms CT-CLIP on CT-RATE (0.754 vs. 0.733 AUROC)</b>, and with only 100 CT-RATE pairs, it does so on RAD-ChestCT, an out-of-distribution dataset from a different hospital. On CheXpert, it reaches 0.862 mean AUROC with only about 5&#8239;% as many pairs as models&nbsp;trained&nbsp;on&nbsp;MIMIC-CXR.</p>
@@ -99,102 +99,98 @@
   </div>
 </section>
 
-<section class="alt" aria-labelledby="method">
-  <div class="wrap">
-    <h2 id="method">Two Conditions for Zero-Pair Alignment</h2>
-    <div class="grid2">
-      <article class="tile step">
-        <span class="num">1</span>
-        <h3>Locate</h3>
-        <p>Find the subspace where image and text features change together. Without pairs, <b>this works only when the subspace has a large part of the variance.</b> On CT, it has 0.5–10.5&#8239;%.</p>
-      </article>
-      <article class="tile step">
-        <span class="num">2</span>
-        <h3>Orient</h3>
-        <p>Select the sign of each shared direction. Without pairs, <b>skewed features let the Gromov–Wasserstein loss select the correct sign.</b></p>
-      </article>
-    </div>
-    <p class="lead"><b>On CT, condition 1 fails without pairs.</b> A random-matrix threshold predicts how many pairs it needs. <i>LightAlign</i> fits a ridge regression on these pairs, which <b>finds and orients the map in one step.</b> A classifier, fitted on report text only, then predicts each finding. The fit takes approximately 1 minute on 4 CPU cores.</p>
-    <figure class="card">
-      <img src="static/fig_overview.webp" width="2200" height="912" loading="lazy" decoding="async"
-           alt="Four panels: shared directions on CT-RATE, detection of shared directions against the number of pairs, a direction and its mirror, and the LightAlign pipeline.">
-      <figcaption><b>The method in four panels.</b> (a) Image and report features agree on the first two shared directions. (b) The shared directions have 8&#8239;% of the image variance and 7&#8239;% of the report variance. Each direction becomes detectable above its predicted number of pairs. (c) A direction and its mirror. The mirror has the higher GW loss. (d) Ridge regression maps a new scan into the text space. A report classifier scores each finding.</figcaption>
-    </figure>
+<section aria-labelledby="method">
+  <div class="col">
+    <h2 id="method">When does alignment work without pairs?</h2>
+    <p>Alignment of two frozen encoders has two conditions.</p>
+    <p><b>1. Locate.</b> Find the subspace where image and text features change together. Without pairs, <b>this works only when the subspace has a large part of the variance.</b> On CT, the shared subspace has only 0.5–10.5&#8239;% of the image&nbsp;variance.</p>
+    <p><b>2. Orient.</b> Select the sign of each shared direction. Without pairs, <b>skewed features let the Gromov–Wasserstein loss select the correct sign.</b></p>
+    <p><b>On CT, condition 1 fails without pairs.</b> A random-matrix threshold predicts how many pairs it needs. <span class="la">LightAlign</span> fits a ridge regression on these pairs, which <b>finds and orients the map in one step.</b> A classifier, fitted on report text only, then predicts each finding. The fit takes approximately 1 minute on 4 CPU cores.</p>
   </div>
+  <figure class="fig wide">
+    <img src="static/fig_overview.webp" width="2200" height="912" loading="lazy" decoding="async"
+         alt="Four panels: shared directions on CT-RATE, detection of shared directions against the number of pairs, a direction and its mirror, and the LightAlign pipeline.">
+    <figcaption>(a) Image and report features agree on the first two shared directions. (b) The shared directions have 8&#8239;% of the image variance and 7&#8239;% of the report variance. Each direction becomes detectable above its predicted number of pairs. (c) A direction and its mirror. The mirror has the higher GW loss. (d) Ridge regression maps a new scan into the text space. A report classifier scores each finding.</figcaption>
+  </figure>
 </section>
 
 <section aria-labelledby="results">
-  <div class="wrap">
-    <h2 id="results">Results</h2>
-    <figure class="card narrow">
-      <img src="static/fig_teaser.webp" width="1560" height="1114" loading="lazy" decoding="async"
-           alt="Left: zero-pair alignment error against the share of image variance in the shared directions for five datasets; scaling the shared directions aligns every dataset. Right: mean AUROC on CT-RATE against the number of pairs; LightAlign passes CT-CLIP at 200 pairs.">
-      <figcaption><b>Zero pairs need a large shared variance. 200 pairs are better than an end-to-end model.</b> (a) Each marker is one dataset, before (open) and after (filled) we multiply the shared directions by 8. Lower FOSCTTM is better. (b) Mean AUROC for 18 findings on 3,002 CT-RATE scans. Dashed line: CT-CLIP, trained on approximately 20,000 patients.</figcaption>
-    </figure>
-    <p class="lead">Frozen encoders. CT: VoxelFM and Qwen3.5-9B. Chest radiographs: RAD-DINO and Qwen3.5-4B. Scores: mean AUROC.</p>
-    <div class="grid4">
-      <div class="tile stat"><span class="big">0.754</span><span class="vs">vs. 0.733 CT-CLIP</span><p>CT-RATE, 200 pairs</p></div>
-      <div class="tile stat"><span class="big">0.824</span><span class="vs">vs. 0.816 COLIPRI</span><p>CT-RATE, 5,994 pairs</p></div>
-      <div class="tile stat"><span class="big">0.636</span><span class="vs">vs. 0.629 CT-CLIP</span><p>RAD-ChestCT, 100 CT-RATE pairs</p></div>
-      <div class="tile stat"><span class="big">0.862</span><span class="vs">CheXpert</span><p>5&#8239;% of the MIMIC-CXR&nbsp;pairs</p></div>
-    </div>
-    <figure class="card">
-      <img src="static/fig_payoff.webp" width="2200" height="736" loading="lazy" decoding="async"
-           alt="Mean AUROC against the number of pairs on CT-RATE and on CheXpert, with end-to-end models as reference points.">
-      <figcaption><b>A few pairs are sufficient.</b> (a) CT-RATE, 3,002 scans. Red: <i>LightAlign</i>. Gray: the same encoders with a zero-shot prompt. Diamonds: end-to-end models. (b) CheXpert test set, against models trained on MIMIC-CXR.</figcaption>
-    </figure>
+  <div class="col">
+    <h2 id="results">How well do a few pairs work?</h2>
+    <p>Zero pairs need a large shared variance. <b>200 pairs are better than an end-to-end model.</b> All encoders stay frozen. CT: VoxelFM and Qwen3.5-9B. Chest radiographs: RAD-DINO and Qwen3.5-4B. Scores: mean AUROC.</p>
   </div>
+  <div class="stats">
+    <div class="stat"><span class="big">0.754</span><p>CT-RATE, 200 pairs, vs. 0.733 for CT-CLIP</p></div>
+    <div class="stat"><span class="big">0.824</span><p>CT-RATE, 5,994 pairs, vs. 0.816 for COLIPRI</p></div>
+    <div class="stat"><span class="big">0.636</span><p>RAD-ChestCT, 100 CT-RATE pairs, vs. 0.629 for CT-CLIP</p></div>
+    <div class="stat"><span class="big">0.862</span><p>CheXpert, with 5&#8239;% of the MIMIC-CXR&nbsp;pairs</p></div>
+  </div>
+  <figure class="fig narrow">
+    <img src="static/fig_teaser.webp" width="1560" height="1114" loading="lazy" decoding="async"
+         alt="Left: zero-pair alignment error against the share of image variance in the shared directions for five datasets; scaling the shared directions aligns every dataset. Right: mean AUROC on CT-RATE against the number of pairs; LightAlign passes CT-CLIP at 200 pairs.">
+    <figcaption>(a) Each marker is one dataset, before (open) and after (filled) we multiply the shared directions by 8. Lower FOSCTTM is better. (b) Mean AUROC for 18 findings on 3,002 CT-RATE scans. Dashed line: CT-CLIP, trained on approximately 20,000 patients.</figcaption>
+  </figure>
+  <figure class="fig wide">
+    <img src="static/fig_payoff.webp" width="2200" height="736" loading="lazy" decoding="async"
+         alt="Mean AUROC against the number of pairs on CT-RATE and on CheXpert, with end-to-end models as reference points.">
+    <figcaption>(a) CT-RATE, 3,002 scans. Red: <span class="la">LightAlign</span>. Gray: the same encoders with a zero-shot prompt. Diamonds: end-to-end models. (b) CheXpert test set, against models trained on MIMIC-CXR.</figcaption>
+  </figure>
 </section>
 
-<section class="alt" aria-labelledby="analysis">
-  <div class="wrap">
-    <h2 id="analysis">Analysis</h2>
-    <figure class="card">
-      <img src="static/fig_locate.webp" width="2200" height="784" loading="lazy" decoding="async"
-           alt="Zero-pair alignment error against the variance share of the shared directions for each encoder and text model, and the effect of shrinking the shared directions on COCO and Clotho.">
-      <figcaption><b>Without pairs, alignment works only when the shared subspace has a large part of the variance.</b> (a) Each marker is one encoder–text combination, before and after we multiply the shared directions by 8. (b) On COCO, a decrease of the shared directions to one quarter stops the alignment.</figcaption>
+<section aria-labelledby="analysis">
+  <div class="col">
+    <h2 id="analysis">Why does zero-pair alignment fail?</h2>
+    <p><b>Without pairs, alignment works only when the shared subspace has a large part of the variance.</b> If we multiply the shared directions by 8, every dataset aligns. On COCO, a decrease of the shared directions to one quarter stops the alignment.</p>
+  </div>
+  <figure class="fig wide">
+    <img src="static/fig_locate.webp" width="2200" height="784" loading="lazy" decoding="async"
+         alt="Zero-pair alignment error against the variance share of the shared directions for each encoder and text model, and the effect of shrinking the shared directions on COCO and Clotho.">
+    <figcaption>(a) Each marker is one encoder–text combination, before and after we multiply the shared directions by 8. (b) Shared directions shrunk to one quarter on COCO and Clotho.</figcaption>
+  </figure>
+  <div class="col">
+    <p><b>Found subspaces are frequently mirrored.</b> The GW loss finds the mirror. <b>The threshold predicts the number of pairs</b>, and a 200-pair pilot ranks the encoders.</p>
+  </div>
+  <div class="pair">
+    <figure class="fig">
+      <img src="static/fig_orient.webp" width="1560" height="936" loading="lazy" decoding="async"
+           alt="Mean AUROC per seed before and after sign correction, and the Gromov-Wasserstein loss against AUROC for correct and mirrored maps.">
+      <figcaption>(a) Mean AUROC for each seed, before and after sign selection. (b) Mirrored maps have a higher GW loss.</figcaption>
     </figure>
-    <div class="pair">
-      <figure class="card">
-        <img src="static/fig_orient.webp" width="1560" height="936" loading="lazy" decoding="async"
-             alt="Mean AUROC per seed before and after sign correction, and the Gromov-Wasserstein loss against AUROC for correct and mirrored maps.">
-        <figcaption><b>Found subspaces are frequently mirrored. The GW loss finds the mirror.</b> (a) Mean AUROC for each seed, before and after sign selection. (b) Mirrored maps have a higher GW loss.</figcaption>
-      </figure>
-      <figure class="card">
-        <img src="static/fig_price.webp" width="1560" height="936" loading="lazy" decoding="async"
-             alt="Predicted against observed squared canonical correlations, and a 200-pair pilot score against AUROC for 15 CT encoders.">
-        <figcaption><b>The threshold predicts the number of pairs. A 200-pair pilot ranks the encoders.</b> (a) Predicted against measured canonical correlations. (b) Pilot score against AUROC for 15 CT encoders.</figcaption>
-      </figure>
-    </div>
+    <figure class="fig">
+      <img src="static/fig_price.webp" width="1560" height="936" loading="lazy" decoding="async"
+           alt="Predicted against observed squared canonical correlations, and a 200-pair pilot score against AUROC for 15 CT encoders.">
+      <figcaption>(a) Predicted against measured canonical correlations. (b) Pilot score against AUROC for 15 CT encoders.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section aria-labelledby="examples">
-  <div class="wrap">
-    <h2 id="examples">Examples</h2>
-    <figure class="card">
-      <img src="static/fig_qual.webp" width="2200" height="2096" loading="lazy" decoding="async"
-           alt="Four CT-RATE validation patients with report impressions, the rank of each patient's own report, and the report-classifier scores of 18 findings.">
-      <figcaption><b>Four CT-RATE validation patients.</b> Left: the report impression and the rank of the own report among 2,025 reports. Right: classifier scores for 18 findings. Orange: findings that the report states.</figcaption>
-    </figure>
+  <div class="col">
+    <h2 id="examples">What does it predict for a patient?</h2>
+    <p>Four CT-RATE validation patients. For each scan, we rank the patient's own report among 2,025 reports and score 18 findings.</p>
   </div>
+  <figure class="fig wide">
+    <img src="static/fig_qual.webp" width="2200" height="2096" loading="lazy" decoding="async"
+         alt="Four CT-RATE validation patients with report impressions, the rank of each patient's own report, and the report-classifier scores of 18 findings.">
+    <figcaption>Left: the report impression and the rank of the own report among 2,025 reports. Right: classifier scores for 18 findings. Orange: findings that the report states.</figcaption>
+  </figure>
 </section>
 
-<section class="alt" aria-labelledby="usage">
-  <div class="wrap">
-    <h2 id="usage">Use the Released Weights</h2>
-    <p class="lead">The weights contain the ridge map from VoxelFM to Qwen3.5-9B features and 18 report classifiers, fitted on 5,994 CT-RATE patients. To score a scan, you need VoxelFM and a CUDA GPU.</p>
+<section aria-labelledby="usage">
+  <div class="col">
+    <h2 id="usage">Use the released weights</h2>
+    <p>The weights contain the ridge map from VoxelFM to Qwen3.5-9B features and 18 report classifiers, fitted on 5,994 CT-RATE patients. To score a scan, you need VoxelFM and a&nbsp;CUDA&nbsp;GPU; the&nbsp;language&nbsp;model is&nbsp;not&nbsp;needed.</p>
     <div class="codehead"><span>Quick start</span><button class="copy" type="button" data-copy="#quickstart">Copy</button></div>
 <pre id="quickstart"><code>git clone https://github.com/sypsyp97/lightalign
 cd lightalign
 pip install -e .
 lightalign-predict --ct volume.nii.gz --weights weights/ --voxelfm-code /path/to/VoxelFM</code></pre>
-    <p class="lead">The repository also contains the experiment code and all result files. For research only. The scores are not calibrated probabilities. <b>Do not use them for clinical decisions.</b></p>
+    <p>The repository also contains the experiment code and all result files. For research only. The scores are not calibrated probabilities. <b>Do not use them for clinical decisions.</b></p>
   </div>
 </section>
 
 <section aria-labelledby="citation">
-  <div class="wrap">
+  <div class="col">
     <h2 id="citation">Citation</h2>
     <div class="codehead"><span>BibTeX</span><button class="copy" type="button" data-copy="#bibtex">Copy</button></div>
 <pre id="bibtex"><code>@article{sun2026whatmatters,
