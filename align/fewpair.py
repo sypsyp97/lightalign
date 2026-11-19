@@ -16,6 +16,11 @@ Methods give an image map f and a report map g into a shared space:
               bias -10, alpha_sail 1, alpha_klot 1e-3, Sinkhorn eps 0.05 / 0.01, 100 iterations, disjoint unpaired
               images and reports). The last step is used: picking a checkpoint on extra validation pairs would spend
               pairs outside the budget.
+  wprocrustes Wasserstein Procrustes of Schnaus et al. (arXiv 2610.09411, github.com/dominik-schnaus/unpaired-rosetta
+              @ fdfad84) with known pairs, authors' code and default configuration (C = 30, S = 30, b = 10,000,
+              R = 100, as align.rosetta): fitted on the unpaired images xu and reports yu (disjoint, as sotalign) plus
+              the n pairs, which enter the initialization and every Procrustes step; f(x) = normalize(transform(x)),
+              g(y) = normalize(center_and_normalize(y, mean_y)), the aligner's Y coordinates
   image_probe logistic regression per finding on the n paired image features with their report labels
   image_probe_cv  as image_probe, with the inverse regularisation C chosen per finding by stratified k-fold
               cross-validation (AUROC) on the n pairs over PROBE_CS, k = min(5, minority-class count); a finding
@@ -53,7 +58,7 @@ from align.decisive import stratified_auc, test_strata
 
 HELDOUT_NS = (25, 50, 100, 200, 400, 800, 1600)
 SOTALIGN_SRC = os.environ.get("SOTALIGN_SRC", "")
-METHODS = ("ridge", "procrustes", "cca", "anchors", "sotalign", "image_probe", "image_probe_cv", "hadgi", "mlp_infonce")
+METHODS = ("ridge", "procrustes", "cca", "anchors", "sotalign", "image_probe", "image_probe_cv", "hadgi", "mlp_infonce", "wprocrustes")
 PROBE_CS = np.logspace(-4, 2, 13)
 HADGI_K = 50
 MLP_WDS = (1e-4, 1e-2, 1e-1, 1.0, 3.0, 10.0)
@@ -165,11 +170,28 @@ def _mlp_infonce(xp, yp, seed):
     return run(model.image), run(model.text)
 
 
+def _wprocrustes(xp, yp, xu, yu, seed):
+    """Authors' Wasserstein Procrustes fitted on the unpaired xu, yu and the n pairs; maps into the aligner's Y coordinates."""
+    import torch
+    from unpaired_rosetta.linalg import center_and_normalize
+    from unpaired_rosetta.randomness import Randomness
+
+    from align.rosetta import _aligner
+
+    t = lambda a: torch.as_tensor(a, dtype=torch.float32)
+    aligner = _aligner().fit(t(xu), t(yu), t(xp), t(yp), Randomness(seed))
+    f = lambda v: normalize(aligner.transform(t(v)).numpy().astype(np.float64))
+    g = lambda v: normalize(center_and_normalize(t(v), aligner.mean_y).numpy().astype(np.float64))
+    return f, g
+
+
 def _torch_space(method, xp, yp, xu, yu, seed):
     """cca, hadgi, anchors and sotalign use the SOTAlign repo (X = reports, Y = images). mlp_infonce is the pair MLP."""
     import torch
     if method == "mlp_infonce":
         return _mlp_infonce(xp, yp, seed)
+    if method == "wprocrustes":
+        return _wprocrustes(xp, yp, xu, yu, seed)
     sys.path.insert(0, SOTALIGN_SRC)
     from optimal_transport.similarity import CCA, Anchors
     dev = "cuda" if torch.cuda.is_available() else "cpu"
@@ -385,6 +407,10 @@ def official(a):
         os.makedirs(a.out, exist_ok=True)
         np.savez(f"{a.out}/official_{a.method}__{a.image}__{a.text}__n{a.n}_scores.npz",
                  ids=vc["id"].to_numpy(), P=np.stack(per_seed["P"]), TC=np.stack(per_seed["TC"]))
+    if "IL" in per_seed:                         # image_probe / image_probe_cv: paired comparisons in align.ci_vs_probe
+        os.makedirs(a.out, exist_ok=True)
+        np.savez(f"{a.out}/official_{a.method}__{a.image}__{a.text}__n{a.n}_scores.npz",
+                 ids=vc["id"].to_numpy(), IL=np.stack(per_seed["IL"]))
     patients = vc["id"].str.split("_").str[1].to_numpy()
     rows = []
     for un, mk in units(vc).items():

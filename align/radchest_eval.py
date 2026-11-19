@@ -7,7 +7,8 @@ calcification" (the CT-CLIP convention).
 
 main: final cell (--encoder voxelfm_b11 --model 9B), reader TC, n = 0 (zero-pair aligner on the unpaired CT-RATE halves)
 and every pair count of align.official_ablation.NS, the same seeds (n = 5,994: seed 0). Centring of the RAD image
-features: "own" (primary) subtracts the mean over all RAD volumes, "ctrate" keeps the centring of the CT-RATE fit.
+features: "ctrate" (primary, the paper protocol: no RAD data enter the pipeline) keeps the centring of the CT-RATE
+fit, "own" subtracts the mean over all RAD volumes.
 transfer: the four maps of align.external.METHODS for one CT-RATE encoder (align.anchor_zero.fit_seed, same seeds,
 halves and pairs), prompt reader, read on the RAD labels with at least align.external.MIN_POS positives and, as the
 in-domain reference, on the CT-RATE test patients (merged labels). RAD has no report, so these BIMCV columns of
@@ -15,7 +16,7 @@ align.external do not exist: the report-side own centring (the prompts keep the 
 centrings), FOSCTTM on the external cohort (needs paired reports), WITHIN (needs RAD anchors from segmentation
 measures and reports to fit on), the bimcv_all zero-pair fit (unpaired RAD images and reports), and the E1-E3 criteria.
 
-    python -m align.radchest_eval main --ctrate DIR --rad DIR --out DIR --encoder voxelfm_b11 --model 9B
+    python -m align.radchest_eval main --ctrate DIR --rad DIR --out DIR --encoder voxelfm_b11 --model 9B [--save-scores]
     python -m align.radchest_eval transfer --ctrate DIR --rad DIR --out DIR --encoder E --model 4B
     python -m align.radchest_eval summary --ctrate DIR --out DIR --encoder voxelfm_b11 --model 9B [--results results/radchest]
 
@@ -79,9 +80,11 @@ def main_run(a):
     ridge_clfs = None                                    # fy of the ridge maps is the pool mean: one set serves every n > 0
     for n in NS:
         path = f"{a.out}/{a.encoder}_{a.model}_n{n}.csv"
-        if os.path.exists(path):
+        npz = f"{a.out}/{a.encoder}_{a.model}_n{n}_scores.npz"
+        have_csv = os.path.exists(path)
+        if have_csv and not (a.save_scores and not os.path.exists(npz)):
             continue
-        rows = []
+        rows, kept = [], {c: [] for c in CENTRINGS}
         for seed in (SEEDS if n < len(pool) else [0]):
             apply, fy = fit_map(xt, y, n, seed, pool)
             if n == 0:
@@ -93,13 +96,19 @@ def main_run(a):
             for c in CENTRINGS:
                 u = apply(xr, centre[c])
                 sc = merge_scores(np.stack([m.decision_function(u) for m in clfs], 1), cols)
+                kept[c].append(sc)
                 auc = auc_matrix(sc, lr)
                 rows.append({"encoder": a.encoder, "model": a.model, "n": n, "seed": seed, "unit": "radchest",
                              "volumes": len(rc), "metric": "mean_auc", "reader": "TC", "centring": c,
                              "auc": float(np.nanmean(auc)), **{f"auc|{l}": float(v) for l, v in zip(rnames, auc)}})
                 print(json.dumps({k: v for k, v in rows[-1].items() if "|" not in k}), flush=True)
-        pd.DataFrame(rows).to_csv(f"{path}.tmp", index=False)
-        os.replace(f"{path}.tmp", path)
+        if a.save_scores:                                # per-volume scores for align.rad_ci boot
+            np.savez(f"{npz[:-4]}.tmp.npz", keys=rc["key"].to_numpy().astype(str),
+                     **{f"TC_{c}": np.stack(v) for c, v in kept.items()})
+            os.replace(f"{npz[:-4]}.tmp.npz", npz)
+        if not have_csv:                                 # an existing csv is kept as it is
+            pd.DataFrame(rows).to_csv(f"{path}.tmp", index=False)
+            os.replace(f"{path}.tmp", path)
 
 
 def rad_encoder(encoder):
@@ -194,9 +203,13 @@ def main():
     ap.add_argument("--encoder", required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--results", default="results/radchest")
+    ap.add_argument("--save-scores", action="store_true",
+                    help="main: also write {encoder}_{model}_n{n}_scores.npz (keys, TC_<centring>: seeds x volumes x labels)")
     a = ap.parse_args()
     if a.step != "summary" and a.rad is None:
         ap.error(f"{a.step} needs --rad")
+    if a.save_scores and a.step != "main":
+        ap.error("--save-scores needs the main step")
     {"main": main_run, "transfer": transfer_run, "summary": summary}[a.step](a)
     print(f"RADCHEST_EVAL_EXIT rc=0 step={a.step}", flush=True)
 

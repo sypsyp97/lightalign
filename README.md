@@ -111,7 +111,12 @@ Paths are relative to `results/`. CT-RATE rows use the 3,002 chest volumes, the 
 | Detection threshold (figures) | `claim2-spiked/`, `spiked_*/`, `planner/`, `downstream/` | `align.spiked`, `align.planner`, `align.downstream` |
 | Other pilot scores | `pilot_baselines/pilot_baselines_summary.csv` (rows `pilot` 200 and 400; checks `S` against `pilot_curve/pilot_curve_m*.csv`) | `align.pilot_curve run`, `align.pilot_baselines run`, `align.pilot_baselines summary` |
 | Table S9, fewer reports | `official_ablation_pair_reports/voxelfm_b11_9B_n*.csv` (`reader=TCn`), `official_ablation_report_counts/voxelfm_b11_9B_n200_m*.csv` (`reader=TCm`); `unit=chest`, `metric=mean_auc` | `align.official_ablation run --pair-reports`, `align.official_ablation run --report-count M` |
+| Table S2, Schnaus et al. with known pairs | `fewpair/official_wprocrustes__voxelfm_b11__textmid_9B__n*.csv` (`unit=chest`, `metric=mean_auc`) | `align.fewpair official --method wprocrustes` |
 | Table S26, tuned image classifier | `fewpair/official_image_probe_cv__voxelfm_b11__textmid_9B__n*.csv` (`reader=IL`; `unit=chest`, `metric=mean_auc`) | `align.fewpair official --method image_probe_cv` |
+| Appendix B, paired intervals against Hadgi et al. | `fewpair/ci_ridge_minus_hadgi_b11_9B.csv` (`unit=chest`) | `align.ci_vs_hadgi` (ridge and Hadgi `*_scores.npz` of `align.official_ablation run` and `align.fewpair official`) |
+| Appendix F, paired intervals against the tuned image classifier | `fewpair/ci_ridge_minus_probe_cv_b11_9B.csv` (`unit=chest`) | `align.ci_vs_probe` (ridge `*_scores.npz` of `align.official_ablation run`; IL `*_scores.npz` of `align.fewpair official --method image_probe_cv`) |
+| Appendix B, RAD-ChestCT interval with 100 pairs | `radchest/boot_n100_ctrate.csv` | `align.radchest_eval main --save-scores`, then `align.rad_ci boot --ns 100 --ref 0.629` (CT-RATE centring) |
+| Appendix B, RAD-ChestCT on the 14 labels of HLIP | `radchest/hlip14_subset_ctrate.csv` | `align.rad_ci subset` on `align.radchest_eval main` output (CT-RATE centring) |
 | Table S27, no block or layer choice | `official_ablation_no_selection/voxelfm_9B_n*.csv`, `voxelfm_b11_9B_last_n*.csv`, `voxelfm_9B_last_n*.csv`; shaded row: `official_ablation/voxelfm_b11_9B_n*.csv` (`reader=TC`; `unit=chest`, `metric=mean_auc`) | `align.official_ablation run --encoder voxelfm` and/or `--text-layer last` |
 
 </details>

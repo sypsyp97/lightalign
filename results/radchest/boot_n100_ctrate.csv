@@ -1,0 +1,2 @@
+n,centring,unit,volumes,labels,seeds,boot,rng_seed,auc,lo,hi,ref,frac_above_ref
+100,ctrate,volume,3630,16,5,1000,12345,0.6355352433607842,0.6308585705858804,0.6406854833889563,0.629,0.997
